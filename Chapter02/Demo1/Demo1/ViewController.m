@@ -222,27 +222,27 @@ extern void esMain( ESContext *esContext );
 //        _esContext.drawFunc( &_esContext );
 //    }
     
-    [self InitShader];
-    GLfloat vVertices[] = {  0.0f,  0.5f, 0.0f,
-        -0.5f, -0.5f, 0.0f,
-        0.5f, -0.5f, 0.0f
-    };
+//    [self InitShader];
+//    GLfloat vVertices[] = {  0.0f,  0.5f, 0.0f,
+//        -0.5f, -0.5f, 0.0f,
+//        0.5f, -0.5f, 0.0f
+//    };
     
     // Set the viewport
 //    glViewport ( 0, 0, esContext->width, esContext->height );
     
     // Clear the color buffer
     glClear ( GL_COLOR_BUFFER_BIT );
-    glClearColor(0.05f, 0.05f, 0.5f, 1);
+    glClearColor(1.0f, 0.05f, 0.5f, 1);
     // Use the program object
-    glUseProgram (programObject );
-    
-    // Load the vertex data
-    glVertexAttribPointer ( 0, 3, GL_FLOAT, GL_FALSE, 0, vVertices );
-    glEnableVertexAttribArray ( 0 );
-    
-    glDrawArrays ( GL_TRIANGLES, 0, 3 );
-    
+//    glUseProgram (programObject );
+//
+//    // Load the vertex data
+//    glVertexAttribPointer ( 0, 3, GL_FLOAT, GL_FALSE, 0, vVertices );
+//    glEnableVertexAttribArray ( 0 );
+//
+//    glDrawArrays ( GL_TRIANGLES, 0, 3 );
+//
     
 }
 

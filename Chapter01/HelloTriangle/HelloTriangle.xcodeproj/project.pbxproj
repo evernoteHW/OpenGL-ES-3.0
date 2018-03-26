@@ -60,8 +60,8 @@
 		7400BA092068D5DF0077563E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		740380BB2068D8B300EE7C37 /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
 		740380BC2068D8B300EE7C37 /* Shader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
-		740380BE2068DEB300EE7C37 /* v_shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = v_shader.vs; sourceTree = "<group>"; };
-		740380C02068E0B300EE7C37 /* f_shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = f_shader.fs; sourceTree = "<group>"; };
+		740380BE2068DEB300EE7C37 /* v_shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = v_shader.vs; path = ../../Textures/Textures/v_shader.vs; sourceTree = "<group>"; };
+		740380C02068E0B300EE7C37 /* f_shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = f_shader.fs; path = ../../Textures/Textures/f_shader.fs; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
