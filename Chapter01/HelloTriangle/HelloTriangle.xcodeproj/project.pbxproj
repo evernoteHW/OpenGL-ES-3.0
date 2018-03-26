@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7400B9D62068D54C0077563E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7400B9D52068D54C0077563E /* AppDelegate.m */; };
+		7400B9D92068D54C0077563E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7400B9D82068D54C0077563E /* ViewController.m */; };
+		7400B9DC2068D54C0077563E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7400B9DA2068D54C0077563E /* Main.storyboard */; };
+		7400B9DE2068D54C0077563E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7400B9DD2068D54C0077563E /* Assets.xcassets */; };
+		7400B9E12068D54C0077563E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7400B9DF2068D54C0077563E /* LaunchScreen.storyboard */; };
+		7400B9E42068D54C0077563E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7400B9E32068D54C0077563E /* main.m */; };
+		7400B9EE2068D54C0077563E /* HelloTriangleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7400B9ED2068D54C0077563E /* HelloTriangleTests.m */; };
+		7400B9F92068D54C0077563E /* HelloTriangleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7400B9F82068D54C0077563E /* HelloTriangleUITests.m */; };
+		7400BA082068D5DB0077563E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7400BA072068D5DB0077563E /* GLKit.framework */; };
+		7400BA0A2068D5DF0077563E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7400BA092068D5DF0077563E /* OpenGLES.framework */; };
+		740380BD2068D8B300EE7C37 /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = 740380BC2068D8B300EE7C37 /* Shader.m */; };
+		740380BF2068DEB300EE7C37 /* v_shader.vs in Resources */ = {isa = PBXBuildFile; fileRef = 740380BE2068DEB300EE7C37 /* v_shader.vs */; };
+		740380C12068E0B300EE7C37 /* f_shader.fs in Resources */ = {isa = PBXBuildFile; fileRef = 740380C02068E0B300EE7C37 /* f_shader.fs */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7400B9EA2068D54C0077563E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7400B9C92068D54C0077563E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7400B9D02068D54C0077563E;
+			remoteInfo = HelloTriangle;
+		};
+		7400B9F52068D54C0077563E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7400B9C92068D54C0077563E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7400B9D02068D54C0077563E;
+			remoteInfo = HelloTriangle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7400B9D12068D54C0077563E /* HelloTriangle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloTriangle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7400B9D42068D54C0077563E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7400B9D52068D54C0077563E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7400B9D72068D54C0077563E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7400B9D82068D54C0077563E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7400B9DB2068D54C0077563E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7400B9DD2068D54C0077563E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7400B9E02068D54C0077563E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7400B9E22068D54C0077563E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7400B9E32068D54C0077563E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7400B9E92068D54C0077563E /* HelloTriangleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloTriangleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7400B9ED2068D54C0077563E /* HelloTriangleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloTriangleTests.m; sourceTree = "<group>"; };
+		7400B9EF2068D54C0077563E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7400B9F42068D54C0077563E /* HelloTriangleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloTriangleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7400B9F82068D54C0077563E /* HelloTriangleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloTriangleUITests.m; sourceTree = "<group>"; };
+		7400B9FA2068D54C0077563E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7400BA072068D5DB0077563E /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		7400BA092068D5DF0077563E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		740380BB2068D8B300EE7C37 /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		740380BC2068D8B300EE7C37 /* Shader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
+		740380BE2068DEB300EE7C37 /* v_shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = v_shader.vs; sourceTree = "<group>"; };
+		740380C02068E0B300EE7C37 /* f_shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = f_shader.fs; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7400B9CE2068D54C0077563E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7400BA0A2068D5DF0077563E /* OpenGLES.framework in Frameworks */,
+				7400BA082068D5DB0077563E /* GLKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7400B9E62068D54C0077563E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7400B9F12068D54C0077563E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7400B9C82068D54C0077563E = {
+			isa = PBXGroup;
+			children = (
+				7400B9D32068D54C0077563E /* HelloTriangle */,
+				7400B9EC2068D54C0077563E /* HelloTriangleTests */,
+				7400B9F72068D54C0077563E /* HelloTriangleUITests */,
+				7400B9D22068D54C0077563E /* Products */,
+				7400BA062068D5DB0077563E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7400B9D22068D54C0077563E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7400B9D12068D54C0077563E /* HelloTriangle.app */,
+				7400B9E92068D54C0077563E /* HelloTriangleTests.xctest */,
+				7400B9F42068D54C0077563E /* HelloTriangleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7400B9D32068D54C0077563E /* HelloTriangle */ = {
+			isa = PBXGroup;
+			children = (
+				7400B9D42068D54C0077563E /* AppDelegate.h */,
+				7400B9D52068D54C0077563E /* AppDelegate.m */,
+				7400B9D72068D54C0077563E /* ViewController.h */,
+				7400B9D82068D54C0077563E /* ViewController.m */,
+				7400B9DA2068D54C0077563E /* Main.storyboard */,
+				7400B9DD2068D54C0077563E /* Assets.xcassets */,
+				7400B9DF2068D54C0077563E /* LaunchScreen.storyboard */,
+				7400B9E22068D54C0077563E /* Info.plist */,
+				7400B9E32068D54C0077563E /* main.m */,
+				740380BB2068D8B300EE7C37 /* Shader.h */,
+				740380BC2068D8B300EE7C37 /* Shader.m */,
+				740380BE2068DEB300EE7C37 /* v_shader.vs */,
+				740380C02068E0B300EE7C37 /* f_shader.fs */,
+			);
+			path = HelloTriangle;
+			sourceTree = "<group>";
+		};
+		7400B9EC2068D54C0077563E /* HelloTriangleTests */ = {
+			isa = PBXGroup;
+			children = (
+				7400B9ED2068D54C0077563E /* HelloTriangleTests.m */,
+				7400B9EF2068D54C0077563E /* Info.plist */,
+			);
+			path = HelloTriangleTests;
+			sourceTree = "<group>";
+		};
+		7400B9F72068D54C0077563E /* HelloTriangleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7400B9F82068D54C0077563E /* HelloTriangleUITests.m */,
+				7400B9FA2068D54C0077563E /* Info.plist */,
+			);
+			path = HelloTriangleUITests;
+			sourceTree = "<group>";
+		};
+		7400BA062068D5DB0077563E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7400BA092068D5DF0077563E /* OpenGLES.framework */,
+				7400BA072068D5DB0077563E /* GLKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7400B9D02068D54C0077563E /* HelloTriangle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7400B9FD2068D54C0077563E /* Build configuration list for PBXNativeTarget "HelloTriangle" */;
+			buildPhases = (
+				7400B9CD2068D54C0077563E /* Sources */,
+				7400B9CE2068D54C0077563E /* Frameworks */,
+				7400B9CF2068D54C0077563E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HelloTriangle;
+			productName = HelloTriangle;
+			productReference = 7400B9D12068D54C0077563E /* HelloTriangle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7400B9E82068D54C0077563E /* HelloTriangleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7400BA002068D54C0077563E /* Build configuration list for PBXNativeTarget "HelloTriangleTests" */;
+			buildPhases = (
+				7400B9E52068D54C0077563E /* Sources */,
+				7400B9E62068D54C0077563E /* Frameworks */,
+				7400B9E72068D54C0077563E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7400B9EB2068D54C0077563E /* PBXTargetDependency */,
+			);
+			name = HelloTriangleTests;
+			productName = HelloTriangleTests;
+			productReference = 7400B9E92068D54C0077563E /* HelloTriangleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7400B9F32068D54C0077563E /* HelloTriangleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7400BA032068D54C0077563E /* Build configuration list for PBXNativeTarget "HelloTriangleUITests" */;
+			buildPhases = (
+				7400B9F02068D54C0077563E /* Sources */,
+				7400B9F12068D54C0077563E /* Frameworks */,
+				7400B9F22068D54C0077563E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7400B9F62068D54C0077563E /* PBXTargetDependency */,
+			);
+			name = HelloTriangleUITests;
+			productName = HelloTriangleUITests;
+			productReference = 7400B9F42068D54C0077563E /* HelloTriangleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7400B9C92068D54C0077563E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = WeiHu;
+				TargetAttributes = {
+					7400B9D02068D54C0077563E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					7400B9E82068D54C0077563E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7400B9D02068D54C0077563E;
+					};
+					7400B9F32068D54C0077563E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7400B9D02068D54C0077563E;
+					};
+				};
+			};
+			buildConfigurationList = 7400B9CC2068D54C0077563E /* Build configuration list for PBXProject "HelloTriangle" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7400B9C82068D54C0077563E;
+			productRefGroup = 7400B9D22068D54C0077563E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7400B9D02068D54C0077563E /* HelloTriangle */,
+				7400B9E82068D54C0077563E /* HelloTriangleTests */,
+				7400B9F32068D54C0077563E /* HelloTriangleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7400B9CF2068D54C0077563E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7400B9E12068D54C0077563E /* LaunchScreen.storyboard in Resources */,
+				7400B9DE2068D54C0077563E /* Assets.xcassets in Resources */,
+				740380C12068E0B300EE7C37 /* f_shader.fs in Resources */,
+				7400B9DC2068D54C0077563E /* Main.storyboard in Resources */,
+				740380BF2068DEB300EE7C37 /* v_shader.vs in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7400B9E72068D54C0077563E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7400B9F22068D54C0077563E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7400B9CD2068D54C0077563E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7400B9D92068D54C0077563E /* ViewController.m in Sources */,
+				7400B9E42068D54C0077563E /* main.m in Sources */,
+				740380BD2068D8B300EE7C37 /* Shader.m in Sources */,
+				7400B9D62068D54C0077563E /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7400B9E52068D54C0077563E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7400B9EE2068D54C0077563E /* HelloTriangleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7400B9F02068D54C0077563E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7400B9F92068D54C0077563E /* HelloTriangleUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7400B9EB2068D54C0077563E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7400B9D02068D54C0077563E /* HelloTriangle */;
+			targetProxy = 7400B9EA2068D54C0077563E /* PBXContainerItemProxy */;
+		};
+		7400B9F62068D54C0077563E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7400B9D02068D54C0077563E /* HelloTriangle */;
+			targetProxy = 7400B9F52068D54C0077563E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7400B9DA2068D54C0077563E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7400B9DB2068D54C0077563E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7400B9DF2068D54C0077563E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7400B9E02068D54C0077563E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7400B9FB2068D54C0077563E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7400B9FC2068D54C0077563E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7400B9FE2068D54C0077563E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				INFOPLIST_FILE = HelloTriangle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jd.com.HelloTriangle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7400B9FF2068D54C0077563E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				INFOPLIST_FILE = HelloTriangle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jd.com.HelloTriangle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7400BA012068D54C0077563E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				INFOPLIST_FILE = HelloTriangleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jd.com.HelloTriangleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HelloTriangle.app/HelloTriangle";
+			};
+			name = Debug;
+		};
+		7400BA022068D54C0077563E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				INFOPLIST_FILE = HelloTriangleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jd.com.HelloTriangleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HelloTriangle.app/HelloTriangle";
+			};
+			name = Release;
+		};
+		7400BA042068D54C0077563E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				INFOPLIST_FILE = HelloTriangleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jd.com.HelloTriangleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HelloTriangle;
+			};
+			name = Debug;
+		};
+		7400BA052068D54C0077563E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				INFOPLIST_FILE = HelloTriangleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jd.com.HelloTriangleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HelloTriangle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7400B9CC2068D54C0077563E /* Build configuration list for PBXProject "HelloTriangle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7400B9FB2068D54C0077563E /* Debug */,
+				7400B9FC2068D54C0077563E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7400B9FD2068D54C0077563E /* Build configuration list for PBXNativeTarget "HelloTriangle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7400B9FE2068D54C0077563E /* Debug */,
+				7400B9FF2068D54C0077563E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7400BA002068D54C0077563E /* Build configuration list for PBXNativeTarget "HelloTriangleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7400BA012068D54C0077563E /* Debug */,
+				7400BA022068D54C0077563E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7400BA032068D54C0077563E /* Build configuration list for PBXNativeTarget "HelloTriangleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7400BA042068D54C0077563E /* Debug */,
+				7400BA052068D54C0077563E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7400B9C92068D54C0077563E /* Project object */;
+}
