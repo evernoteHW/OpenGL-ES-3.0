@@ -18,6 +18,7 @@
     GLuint programObject;
     Shader *shader;
     GLuint texture;
+    GLuint texture1;
 }
 @property (strong, nonatomic) EAGLContext *context;
 @property (strong, nonatomic) GLKView *glkView;
@@ -35,6 +36,8 @@
     
     
     glGenBuffers(1, &texture);
+    // 绑定之前激活纹理
+//    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texture);
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -47,8 +50,8 @@
 //    NSData *data = UIImageJPEGRepresentation(image, 1.0);
     stbi_set_flip_vertically_on_load(true);
     
-    int width, height, nrChannels;
-    unsigned char *data = stbi_load("/Users/weihu/OpenGL ES 3.0/Chapter01/Textures/Textures/123.jpg", &width, &height, &nrChannels, 0);
+    GLint width, height, nrChannels;
+    GLubyte *data = stbi_load("/Users/weihu/OpenGL ES 3.0/Chapter01/Textures/Textures/container.jpg", &width, &height, &nrChannels, 0);
     
     if (data) {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
@@ -56,11 +59,39 @@
     }
     
     stbi_image_free(data);
+
+
+    glGenBuffers(1, &texture1);
+    // 绑定之前激活纹理
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, texture1);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    //只能加载出PNG或者JPG
+
+    GLint width1, height1, nrChannels1;
+
+    GLubyte *data1 = stbi_load("/Users/weihu/OpenGL ES 3.0/Chapter01/Textures/Textures/awesomeface.png", &width1, &height1, &nrChannels1, 0);
+
+    if (data1) {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width1, height1, 0, GL_RGBA, GL_UNSIGNED_BYTE, data1);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+//
+//    [shader use];
+//    [shader glUniform1i:"texture1" value:GL_TEXTURE0];
+//    [shader glUniform1i:"texture2" value:GL_TEXTURE1];
+//
+    stbi_image_free(data1);
     
 }
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
-    glClearColor(1.0f, 0.5f, 1.0f, 1);
+    glClearColor(1.0f, 1.0f, 1.0f, 1);
     glClear ( GL_COLOR_BUFFER_BIT);
     
     
@@ -87,11 +118,17 @@
         0.0f, 1.0f,       // 左上角
     };
     
-    glBindTexture(GL_TEXTURE_2D, texture);
-    
+
     [shader use];
     
- 
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    [shader glUniform1i:"texture1" value:0];
+//
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, texture1);
+    [shader glUniform1i:"texture2" value:1];
+    
     glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), vVertices );
     glEnableVertexAttribArray ( 0 );
     

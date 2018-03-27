@@ -28,6 +28,10 @@
 - (void)use{
     glUseProgram (programObject);
 }
+- (void)glUniform1i:(const GLchar *)name value:(GLfloat)value
+{
+    glUniform1i(glGetUniformLocation(programObject, name), value);
+}
 - (void)setUniform4f:(const GLchar *)name value:(GLKVector4)value{
     int location = glGetUniformLocation(programObject, name);
     glUniform4f(location, value.r, value.g, value.b, value.a);
