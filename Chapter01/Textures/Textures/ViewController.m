@@ -12,6 +12,7 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
+#import <GLKit/GLKit.h>
 
 @interface ViewController () <GLKViewDelegate>
 {
@@ -91,7 +92,7 @@
 }
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
-    glClearColor(1.0f, 1.0f, 1.0f, 1);
+    glClearColor(0.5f, 1.0f, 1.0f, 1);
     glClear ( GL_COLOR_BUFFER_BIT);
     
     
@@ -120,6 +121,32 @@
     
 
     [shader use];
+    GLKMatrix4 model = GLKMatrix4Make(1, 0, 0, 0,
+                                     0, 1, 0, 0,
+                                     0, 0, 1, 0,
+                                     0, 0, 0, 1);
+//    mat4 = GLKMatrix4Scale(mat4, 0.5, 0.5, 0.5);
+//    mat4 = GLKMatrix4TranslateWithVector4(mat4, GLKVector4Make(0.0, 0.0, 0.5f, 1.0f));
+    model = GLKMatrix4Rotate(model, GLKMathDegreesToRadians(-55.0f), 1.0f, 0.0, 0.0f);
+    [shader setUniformMatrix4fv:"model" value:model];
+    
+    GLKMatrix4 view2 = GLKMatrix4Make(1, 0, 0, 0,
+                                     0, 1, 0, 0,
+                                     0, 0, 1, 0,
+                                     0, 0, 0, 1);
+
+    
+    view2 = GLKMatrix4TranslateWithVector3(view2, GLKVector3Make(0.0f, 0.0f, -3.0f));
+    [shader setUniformMatrix4fv:"view" value:view2];
+    
+    
+    
+    GLKMatrix4 projection = GLKMatrix4Make(1, 0, 0, 0,
+                                           0, 1, 0, 0,
+                                           0, 0, 1, 0,
+                                           0, 0, 0, 1);
+    projection = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(45.0f), 1, 0.1f, 100.0f);
+    [shader setUniformMatrix4fv:"projection" value:projection];
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texture);

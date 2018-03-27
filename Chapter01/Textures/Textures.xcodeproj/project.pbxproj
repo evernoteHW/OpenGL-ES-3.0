@@ -23,6 +23,8 @@
 		7403810D2069E6E900EE7C37 /* container.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7403810C2069E6E900EE7C37 /* container.jpg */; };
 		7403810F2069E81500EE7C37 /* aaaa.png in Resources */ = {isa = PBXBuildFile; fileRef = 7403810E2069E81500EE7C37 /* aaaa.png */; };
 		740381112069F3AD00EE7C37 /* awesomeface.png in Resources */ = {isa = PBXBuildFile; fileRef = 740381102069F3AD00EE7C37 /* awesomeface.png */; };
+		74B78C8C206A16AE0020382A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B78C8B206A16AE0020382A /* OpenGLES.framework */; };
+		74B78C8E206A16B20020382A /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B78C8D206A16B20020382A /* GLKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		7403810C2069E6E900EE7C37 /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
 		7403810E2069E81500EE7C37 /* aaaa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aaaa.png; sourceTree = "<group>"; };
 		740381102069F3AD00EE7C37 /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
+		74B78C8B206A16AE0020382A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		74B78C8D206A16B20020382A /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74B78C8E206A16B20020382A /* GLKit.framework in Frameworks */,
+				74B78C8C206A16AE0020382A /* OpenGLES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +109,7 @@
 				740380E62068F06700EE7C37 /* TexturesTests */,
 				740380F12068F06700EE7C37 /* TexturesUITests */,
 				740380CC2068F06700EE7C37 /* Products */,
+				74B78C8A206A16AE0020382A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,6 +165,15 @@
 				740380F42068F06700EE7C37 /* Info.plist */,
 			);
 			path = TexturesUITests;
+			sourceTree = "<group>";
+		};
+		74B78C8A206A16AE0020382A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74B78C8D206A16B20020382A /* GLKit.framework */,
+				74B78C8B206A16AE0020382A /* OpenGLES.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -36,6 +36,12 @@
     int location = glGetUniformLocation(programObject, name);
     glUniform4f(location, value.r, value.g, value.b, value.a);
 }
+- (void)setUniformMatrix4fv:(const GLchar *)name value:(GLKMatrix4)value
+{
+    int location = glGetUniformLocation(programObject, name);
+//    const GLfloat *values = [1.0, 1.0, 1.0, 1.0];
+    glUniformMatrix4fv(location, 1, GL_FALSE, &value.m00);
+}
 - (GLuint)LoadShader:(GLenum)type shaderSrc: (const char *)shaderSrc
 {
     GLuint shader = glCreateShader ( type );

@@ -13,6 +13,7 @@
 - (void)use;
 - (void)glUniform1i:(const GLchar *)name value:(GLfloat)value;
 - (void)setUniform4f:(const GLchar *)name value:(GLKVector4)value;
+- (void)setUniformMatrix4fv:(const GLchar *)name value:(GLKMatrix4)value;
 
 - (instancetype)initVSShader:(NSString *)vsShader fsShader:(NSString *)fsShader;
 @end
