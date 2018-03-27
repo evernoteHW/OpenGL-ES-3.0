@@ -195,32 +195,7 @@
     
 
     [shader use];
-    GLKMatrix4 model = GLKMatrix4Make(1, 0, 0, 0,
-                                     0, 1, 0, 0,
-                                     0, 0, 1, 0,
-                                     0, 0, 0, 1);
-//    mat4 = GLKMatrix4Scale(mat4, 0.5, 0.5, 0.5);
-//    mat4 = GLKMatrix4TranslateWithVector4(mat4, GLKVector4Make(0.0, 0.0, 0.5f, 1.0f));
-    model = GLKMatrix4Rotate(model, GLKMathDegreesToRadians(-55.0f), 1.0f, 0.0, 0.0f);
-    [shader setUniformMatrix4fv:"model" value:model];
-    
-    GLKMatrix4 view2 = GLKMatrix4Make(1, 0, 0, 0,
-                                     0, 1, 0, 0,
-                                     0, 0, 1, 0,
-                                     0, 0, 0, 1);
-
-    
-    view2 = GLKMatrix4TranslateWithVector3(view2, GLKVector3Make(0.0f, 0.0f, -3.0f));
-    [shader setUniformMatrix4fv:"view" value:view2];
-    
-    
-    
-    GLKMatrix4 projection = GLKMatrix4Make(1, 0, 0, 0,
-                                           0, 1, 0, 0,
-                                           0, 0, 1, 0,
-                                           0, 0, 0, 1);
-    projection = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(45.0f), 1, 0.1f, 100.0f);
-    [shader setUniformMatrix4fv:"projection" value:projection];
+   
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texture);
@@ -239,7 +214,6 @@
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), texCoords);
     glEnableVertexAttribArray ( 2 );
     
-   
 
 //    这里要注意第三个参数, GL_UNSIGNED_INT在OpenGL ES下已经不支持了, 现在只支持: GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT这两个参数, 我想不用说也知道,INT点4个字节, BYTE占一个,SHORT占两个, 能省就省吧,
     
@@ -259,7 +233,54 @@
 //    };
 //    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, indices);
     
-    glDrawArrays(GL_TRIANGLES, 0, 36);
+   
+    GLKMatrix4 view2 = GLKMatrix4Make(1, 0, 0, 0,
+                                      0, 1, 0, 0,
+                                      0, 0, 1, 0,
+                                      0, 0, 0, 1);
+    
+    
+    view2 = GLKMatrix4TranslateWithVector3(view2, GLKVector3Make(0.0f, 0.0f, -3.0f));
+    [shader setUniformMatrix4fv:"view" value:view2];
+    
+    
+    
+    GLKMatrix4 projection = GLKMatrix4Make(1, 0, 0, 0,
+                                           0, 1, 0, 0,
+                                           0, 0, 1, 0,
+                                           0, 0, 0, 1);
+    projection = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(45.0f), 1, 0.1f, 100.0f);
+    [shader setUniformMatrix4fv:"projection" value:projection];
+    
+    GLKVector3 cubePositions[] = {
+                               GLKVector3Make( 0.0f,  0.0f,  0.0f),
+                               GLKVector3Make( 2.0f,  5.0f, -15.0f),
+                               GLKVector3Make(-1.5f, -2.2f, -2.5f),
+                               GLKVector3Make(-3.8f, -2.0f, -12.3f),
+                               GLKVector3Make( 2.4f, -0.4f, -3.5f),
+                               GLKVector3Make(-1.7f,  3.0f, -7.5f),
+                               GLKVector3Make( 1.3f, -2.0f, -2.5f),
+                               GLKVector3Make( 1.5f,  2.0f, -2.5f),
+                               GLKVector3Make( 1.5f,  0.2f, -1.5f),
+                               GLKVector3Make(-1.3f,  1.0f, -1.5f)
+    };
+    
+    for (NSInteger i = 0; i < 10; i++) {
+        
+        GLKMatrix4 model = GLKMatrix4Make(1, 0, 0, 0,
+                                          0, 1, 0, 0,
+                                          0, 0, 1, 0,
+                                          0, 0, 0, 1);
+        
+        model = GLKMatrix4TranslateWithVector3(model, cubePositions[i]);
+        GLfloat angle = 20.0f * i;
+        model = GLKMatrix4Rotate(model, GLKMathDegreesToRadians(angle), 1.0, 0.3, 0.5);
+        [shader setUniformMatrix4fv:"model" value:model];
+        
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+        
+    }
+    
     
 }
 
