@@ -58,7 +58,9 @@
     stbi_set_flip_vertically_on_load(true);
     
     GLint width, height, nrChannels;
-    GLubyte *data = stbi_load("/Users/weihu/OpenGL ES 3.0/Chapter01/Textures/Textures/container.jpg", &width, &height, &nrChannels, 0);
+    const char *path1 = [[[NSBundle mainBundle] pathForResource:@"container" ofType:@"jpg"] cStringUsingEncoding:NSASCIIStringEncoding];
+//    const char *path1 = "/Users/weihu/OpenGL ES 3.0/Chapter01/Textures/Textures/awesomeface.png";
+    GLubyte *data = stbi_load(path1, &width, &height, &nrChannels, 0);
     
     if (data) {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
@@ -82,7 +84,11 @@
 
     GLint width1, height1, nrChannels1;
 
-    GLubyte *data1 = stbi_load("/Users/weihu/OpenGL ES 3.0/Chapter01/Textures/Textures/awesomeface.png", &width1, &height1, &nrChannels1, 0);
+    // 获取当
+
+//    const char *path = [[[NSBundle mainBundle] pathForResource:@"awesomeface" ofType:@"png"] cStringUsingEncoding:NSASCIIStringEncoding];
+    const char *path = "/Users/weihu/OpenGL ES 3.0/Chapter01/Textures/Textures/awesomeface.png";
+    GLubyte *data1 = stbi_load(path, &width1, &height1, &nrChannels1, 0);
 
     if (data1) {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width1, height1, 0, GL_RGBA, GL_UNSIGNED_BYTE, data1);
@@ -246,8 +252,8 @@
     // 本身屏幕宽度
     NSLog(@"%f ", _glkView.move_x);
     
-    GLfloat camX = -sin(CFAbsoluteTimeGetCurrent()) * 10.0;
-    GLfloat camZ = cos(CFAbsoluteTimeGetCurrent()) * 10.0;
+    GLfloat camX = sin(time) * 6.0;
+    GLfloat camZ = cos(time) * 6.0;
 
     
     view2 = GLKMatrix4MakeLookAt(camX, 0.0f, camZ,
@@ -285,7 +291,7 @@
 }
 - (IBAction)leftBtnAction:(UIButton *)sender {
 //    UILongPressGestureRecognizer
-//    time = CFAbsoluteTimeGetCurrent();
+    time = CFAbsoluteTimeGetCurrent();
     [_glkView setNeedsDisplay];
 //    CFAbsoluteTimeGetCurrent()
 }
@@ -298,7 +304,13 @@
 }
 - (void)longGestrueAction:(UILongPressGestureRecognizer *)longGes
 {
+    time = CFAbsoluteTimeGetCurrent();
     [_glkView setNeedsDisplay];
+}
+- (GLuint)loadTexture:(NSString *)path
+{
+    
+    return 0;
 }
 #pragma mark - Setter Getter
 
@@ -311,7 +323,9 @@
         _glkView.backgroundColor = [UIColor orangeColor];
         _glkView.drawableDepthFormat = GLKViewDrawableDepthFormat24;
         
-        [_glkView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longGestrueAction:)]];
+        UILongPressGestureRecognizer *longGes = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longGestrueAction:)];
+        longGes.minimumPressDuration = 0.01;
+        [_glkView addGestureRecognizer:longGes];
         
     }
     return _glkView;
