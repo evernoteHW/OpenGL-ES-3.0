@@ -89,19 +89,57 @@
 //
     stbi_image_free(data1);
     
+    glEnable(GL_DEPTH_TEST);
 }
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
     glClearColor(0.5f, 1.0f, 1.0f, 1);
-    glClear ( GL_COLOR_BUFFER_BIT);
+    glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     
     GLfloat vVertices[] = {
-        // 位置              // 颜色
-        0.5f,  0.5f, 0.0f,      // 右上角
-        0.5f, -0.5f, 0.0f,      // 右下角
-       -0.5f, -0.5f, 0.0f,      // 左下角
-       -0.5f,  0.5f, 0.0f,      // 左上角
+        // 位置              // 纹理zuo biao
+        -0.5f, -0.5f, -0.5f,
+        0.5f, -0.5f, -0.5f,
+        0.5f,  0.5f, -0.5f,
+        0.5f,  0.5f, -0.5f,
+        -0.5f,  0.5f, -0.5f,
+        -0.5f, -0.5f, -0.5f,
+        
+        -0.5f, -0.5f,  0.5f,
+        0.5f, -0.5f,  0.5f,
+        0.5f,  0.5f,  0.5f,
+        0.5f,  0.5f,  0.5f,
+        -0.5f,  0.5f,  0.5f,
+        -0.5f, -0.5f,  0.5f,
+        
+        -0.5f,  0.5f,  0.5f,
+        -0.5f,  0.5f, -0.5f,
+        -0.5f, -0.5f, -0.5f,
+        -0.5f, -0.5f, -0.5f,
+        -0.5f, -0.5f,  0.5f,
+        -0.5f,  0.5f,  0.5f,
+        
+        0.5f,  0.5f,  0.5f,
+        0.5f,  0.5f, -0.5f,
+        0.5f, -0.5f, -0.5f,
+        0.5f, -0.5f, -0.5f,
+        0.5f, -0.5f,  0.5f,
+        0.5f,  0.5f,  0.5f,
+        
+        -0.5f, -0.5f, -0.5f,
+        0.5f, -0.5f, -0.5f,
+        0.5f, -0.5f,  0.5f,
+        0.5f, -0.5f,  0.5f,
+        -0.5f, -0.5f,  0.5f,
+        -0.5f, -0.5f, -0.5f,
+        
+        -0.5f,  0.5f, -0.5f,
+        0.5f,  0.5f, -0.5f,
+        0.5f,  0.5f,  0.5f,
+        0.5f,  0.5f,  0.5f,
+        -0.5f,  0.5f,  0.5f,
+        -0.5f,  0.5f, -0.5f,
     };
     
     GLfloat cVertices[] = {
@@ -111,12 +149,48 @@
         0.0f, 0.0f, 1.0f    // 顶部
     };
     
-    float texCoords[] = {
-        // 位置
-        1.0f, 1.0f,        // 右上角
-        1.0f, 0.0f,        // 右下角
-        0.0f, 0.0f,       // 左下角
-        0.0f, 1.0f,       // 左上角
+    GLfloat texCoords[] = {
+         0.0f, 0.0f,
+        1.0f, 0.0f,
+        1.0f, 1.0f,
+        1.0f, 1.0f,
+         0.0f, 1.0f,
+         0.0f, 0.0f,
+       
+         0.0f, 0.0f,
+        1.0f, 0.0f,
+        1.0f, 1.0f,
+        1.0f, 1.0f,
+         0.0f, 1.0f,
+         0.0f, 0.0f,
+       
+         1.0f, 0.0f,
+         1.0f, 1.0f,
+         0.0f, 1.0f,
+         0.0f, 1.0f,
+         0.0f, 0.0f,
+         1.0f, 0.0f,
+       
+        1.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 1.0f,
+        0.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+       
+         0.0f, 1.0f,
+        1.0f, 1.0f,
+        1.0f, 0.0f,
+        1.0f, 0.0f,
+         0.0f, 0.0f,
+         0.0f, 1.0f,
+       
+         0.0f, 1.0f,
+        1.0f, 1.0f,
+        1.0f, 0.0f,
+        1.0f, 0.0f,
+         0.0f, 0.0f,
+         0.0f, 1.0f
     };
     
 
@@ -179,11 +253,13 @@
 //    type为索引值的类型，只能是下列值之一：GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT。
 //    indices：指向索引存贮位置的指针。
 
-    const GLubyte indices[] = {
-        0, 1, 2,        // 第一个三角形
-        2, 3, 0
-    };
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, indices);
+//    const GLubyte indices[] = {
+//        0, 1, 2,        // 第一个三角形
+//        2, 3, 0
+//    };
+//    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, indices);
+    
+    glDrawArrays(GL_TRIANGLES, 0, 36);
     
 }
 

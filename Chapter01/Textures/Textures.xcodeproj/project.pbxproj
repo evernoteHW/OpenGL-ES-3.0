@@ -19,7 +19,6 @@
 		740381052068F07400EE7C37 /* f_shader.fs in Resources */ = {isa = PBXBuildFile; fileRef = 740381032068F07300EE7C37 /* f_shader.fs */; };
 		740381062068F07400EE7C37 /* v_shader.vs in Resources */ = {isa = PBXBuildFile; fileRef = 740381042068F07400EE7C37 /* v_shader.vs */; };
 		740381082068F52D00EE7C37 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 740381072068F52D00EE7C37 /* test.png */; };
-		7403810A2068F8E500EE7C37 /* 123.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 740381092068F8E500EE7C37 /* 123.jpg */; };
 		7403810D2069E6E900EE7C37 /* container.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7403810C2069E6E900EE7C37 /* container.jpg */; };
 		7403810F2069E81500EE7C37 /* aaaa.png in Resources */ = {isa = PBXBuildFile; fileRef = 7403810E2069E81500EE7C37 /* aaaa.png */; };
 		740381112069F3AD00EE7C37 /* awesomeface.png in Resources */ = {isa = PBXBuildFile; fileRef = 740381102069F3AD00EE7C37 /* awesomeface.png */; };
@@ -66,7 +65,6 @@
 		740381032068F07300EE7C37 /* f_shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = f_shader.fs; sourceTree = "<group>"; };
 		740381042068F07400EE7C37 /* v_shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = v_shader.vs; sourceTree = "<group>"; };
 		740381072068F52D00EE7C37 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
-		740381092068F8E500EE7C37 /* 123.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 123.jpg; sourceTree = "<group>"; };
 		7403810B2068F99700EE7C37 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		7403810C2069E6E900EE7C37 /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
 		7403810E2069E81500EE7C37 /* aaaa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aaaa.png; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 				740381102069F3AD00EE7C37 /* awesomeface.png */,
 				740381002068F07000EE7C37 /* Shader.h */,
 				740381012068F07100EE7C37 /* Shader.m */,
-				740381092068F8E500EE7C37 /* 123.jpg */,
 				7403810B2068F99700EE7C37 /* stb_image.h */,
 				740381042068F07400EE7C37 /* v_shader.vs */,
 				740381032068F07300EE7C37 /* f_shader.fs */,
@@ -283,7 +280,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				740380DB2068F06700EE7C37 /* LaunchScreen.storyboard in Resources */,
-				7403810A2068F8E500EE7C37 /* 123.jpg in Resources */,
 				7403810F2069E81500EE7C37 /* aaaa.png in Resources */,
 				740380D82068F06700EE7C37 /* Assets.xcassets in Resources */,
 				740381052068F07400EE7C37 /* f_shader.fs in Resources */,
