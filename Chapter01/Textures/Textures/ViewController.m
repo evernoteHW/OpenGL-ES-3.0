@@ -13,6 +13,9 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #import <GLKit/GLKit.h>
+#import "CustomGLKView.h"
+
+#define GLKUnitMatrix4 GLKMatrix4Make(1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f)
 
 @interface ViewController () <GLKViewDelegate>
 {
@@ -20,9 +23,12 @@
     Shader *shader;
     GLuint texture;
     GLuint texture1;
+    CGFloat move_orign;
+    CGFloat move_x;
+    CFAbsoluteTime time;
 }
 @property (strong, nonatomic) EAGLContext *context;
-@property (strong, nonatomic) GLKView *glkView;
+@property (strong, nonatomic) CustomGLKView *glkView;
 @end
 
 @implementation ViewController
@@ -90,6 +96,7 @@
     stbi_image_free(data1);
     
     glEnable(GL_DEPTH_TEST);
+    
 }
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
@@ -201,6 +208,7 @@
     glBindTexture(GL_TEXTURE_2D, texture);
     [shader glUniform1i:"texture1" value:0];
 //
+    
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, texture1);
     [shader glUniform1i:"texture2" value:1];
@@ -234,66 +242,77 @@
 //    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, indices);
     
    
-    GLKMatrix4 view2 = GLKMatrix4Make(1, 0, 0, 0,
-                                      0, 1, 0, 0,
-                                      0, 0, 1, 0,
-                                      0, 0, 0, 1);
+    GLKMatrix4 view2 = GLKUnitMatrix4;
+    // 本身屏幕宽度
+    NSLog(@"%f ", _glkView.move_x);
     
+    GLfloat camX = -sin(CFAbsoluteTimeGetCurrent()) * 10.0;
+    GLfloat camZ = cos(CFAbsoluteTimeGetCurrent()) * 10.0;
+
     
-    view2 = GLKMatrix4TranslateWithVector3(view2, GLKVector3Make(0.0f, 0.0f, -3.0f));
+    view2 = GLKMatrix4MakeLookAt(camX, 0.0f, camZ,
+                                 0.0f, 0.0f, 0.0f,
+                                 0.0f, 1.0f, 0.0f);
+    
     [shader setUniformMatrix4fv:"view" value:view2];
     
-    
-    
-    GLKMatrix4 projection = GLKMatrix4Make(1, 0, 0, 0,
-                                           0, 1, 0, 0,
-                                           0, 0, 1, 0,
-                                           0, 0, 0, 1);
+    GLKMatrix4 projection = GLKUnitMatrix4;
     projection = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(45.0f), 1, 0.1f, 100.0f);
     [shader setUniformMatrix4fv:"projection" value:projection];
     
     GLKVector3 cubePositions[] = {
-                               GLKVector3Make( 0.0f,  0.0f,  0.0f),
-                               GLKVector3Make( 2.0f,  5.0f, -15.0f),
-                               GLKVector3Make(-1.5f, -2.2f, -2.5f),
-                               GLKVector3Make(-3.8f, -2.0f, -12.3f),
-                               GLKVector3Make( 2.4f, -0.4f, -3.5f),
-                               GLKVector3Make(-1.7f,  3.0f, -7.5f),
-                               GLKVector3Make( 1.3f, -2.0f, -2.5f),
-                               GLKVector3Make( 1.5f,  2.0f, -2.5f),
-                               GLKVector3Make( 1.5f,  0.2f, -1.5f),
-                               GLKVector3Make(-1.3f,  1.0f, -1.5f)
-    };
+                                    GLKVector3Make( 0.0f,  0.0f,  0.0f),
+                                    GLKVector3Make( 2.0f,  5.0f, -15.0f),
+                                    GLKVector3Make(-1.5f, -2.2f, -2.5f),
+                                    GLKVector3Make(-3.8f, -2.0f, -12.3f),
+                                    GLKVector3Make( 2.4f, -0.4f, -3.5f),
+                                    GLKVector3Make(-1.7f,  3.0f, -7.5f),
+                                    GLKVector3Make( 1.3f, -2.0f, -2.5f),
+                                    GLKVector3Make( 1.5f,  2.0f, -2.5f),
+                                    GLKVector3Make( 1.5f,  0.2f, -1.5f),
+                                    GLKVector3Make(-1.3f,  1.0f, -1.5f)
+                                };
     
     for (NSInteger i = 0; i < 10; i++) {
-        
-        GLKMatrix4 model = GLKMatrix4Make(1, 0, 0, 0,
-                                          0, 1, 0, 0,
-                                          0, 0, 1, 0,
-                                          0, 0, 0, 1);
-        
-        model = GLKMatrix4TranslateWithVector3(model, cubePositions[i]);
+        GLKMatrix4 model = GLKMatrix4TranslateWithVector3(GLKUnitMatrix4, cubePositions[i]);
         GLfloat angle = 20.0f * i;
         model = GLKMatrix4Rotate(model, GLKMathDegreesToRadians(angle), 1.0, 0.3, 0.5);
         [shader setUniformMatrix4fv:"model" value:model];
-        
         glDrawArrays(GL_TRIANGLES, 0, 36);
-        
     }
     
-    
+//    [_glkView setNeedsDisplay];
+}
+- (IBAction)leftBtnAction:(UIButton *)sender {
+//    UILongPressGestureRecognizer
+//    time = CFAbsoluteTimeGetCurrent();
+    [_glkView setNeedsDisplay];
+//    CFAbsoluteTimeGetCurrent()
 }
 
+- (IBAction)rightBtnAction:(UIButton *)sender {
+}
+- (IBAction)upBtnAction:(UIButton *)sender {
+}
+- (IBAction)downBtnAction:(UIButton *)sender {
+}
+- (void)longGestrueAction:(UILongPressGestureRecognizer *)longGes
+{
+    [_glkView setNeedsDisplay];
+}
 #pragma mark - Setter Getter
 
-- (GLKView *)glkView{
+- (CustomGLKView *)glkView{
     if (_glkView == nil) {
-        _glkView = [[GLKView alloc] initWithFrame:self.view.bounds context:self.context];
+        _glkView = [[CustomGLKView alloc] initWithFrame:self.view.bounds context:self.context];
         _glkView.frame = CGRectMake(0, 20, self.view.bounds.size.width, self.view.bounds.size.width);
         _glkView.delegate = self;
         _glkView.enableSetNeedsDisplay = true;
         _glkView.backgroundColor = [UIColor orangeColor];
         _glkView.drawableDepthFormat = GLKViewDrawableDepthFormat24;
+        
+        [_glkView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longGestrueAction:)]];
+        
     }
     return _glkView;
 }

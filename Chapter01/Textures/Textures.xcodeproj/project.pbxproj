@@ -22,6 +22,7 @@
 		7403810D2069E6E900EE7C37 /* container.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7403810C2069E6E900EE7C37 /* container.jpg */; };
 		7403810F2069E81500EE7C37 /* aaaa.png in Resources */ = {isa = PBXBuildFile; fileRef = 7403810E2069E81500EE7C37 /* aaaa.png */; };
 		740381112069F3AD00EE7C37 /* awesomeface.png in Resources */ = {isa = PBXBuildFile; fileRef = 740381102069F3AD00EE7C37 /* awesomeface.png */; };
+		740DF361206A488D003743D8 /* CustomGLKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 740DF360206A488D003743D8 /* CustomGLKView.m */; };
 		74B78C8C206A16AE0020382A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B78C8B206A16AE0020382A /* OpenGLES.framework */; };
 		74B78C8E206A16B20020382A /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B78C8D206A16B20020382A /* GLKit.framework */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,8 @@
 		7403810C2069E6E900EE7C37 /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
 		7403810E2069E81500EE7C37 /* aaaa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aaaa.png; sourceTree = "<group>"; };
 		740381102069F3AD00EE7C37 /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
+		740DF35F206A488D003743D8 /* CustomGLKView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomGLKView.h; sourceTree = "<group>"; };
+		740DF360206A488D003743D8 /* CustomGLKView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomGLKView.m; sourceTree = "<group>"; };
 		74B78C8B206A16AE0020382A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		74B78C8D206A16B20020382A /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -142,6 +145,8 @@
 				740380DC2068F06700EE7C37 /* Info.plist */,
 				740381072068F52D00EE7C37 /* test.png */,
 				740380DD2068F06700EE7C37 /* main.m */,
+				740DF35F206A488D003743D8 /* CustomGLKView.h */,
+				740DF360206A488D003743D8 /* CustomGLKView.m */,
 			);
 			path = Textures;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				740380D32068F06700EE7C37 /* ViewController.m in Sources */,
+				740DF361206A488D003743D8 /* CustomGLKView.m in Sources */,
 				740380DE2068F06700EE7C37 /* main.m in Sources */,
 				740381022068F07100EE7C37 /* Shader.m in Sources */,
 				740380D02068F06700EE7C37 /* AppDelegate.m in Sources */,
