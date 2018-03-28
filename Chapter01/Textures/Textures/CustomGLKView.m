@@ -34,14 +34,15 @@
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
 //    NSLog(@"2222");
+//    [self setNeedsDisplay];
 }
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    UITouch *touch = touches.anyObject;
-    CGPoint point = [touch locationInView:self];
-    _move_x = (point.x - move_orign)/self.frame.size.width;
-    
-    [self setNeedsDisplay];
+//    UITouch *touch = touches.anyObject;
+//    CGPoint point = [touch locationInView:self];
+//    _move_x = (point.x - move_orign)/self.frame.size.width;
+//    
+//    [self setNeedsDisplay];
     
 }
 @end

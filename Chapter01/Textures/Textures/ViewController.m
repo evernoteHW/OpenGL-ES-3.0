@@ -26,6 +26,7 @@
     CGFloat move_orign;
     CGFloat move_x;
     CFAbsoluteTime time;
+    GLKVector3 cameraPos;
 }
 @property (strong, nonatomic) EAGLContext *context;
 @property (strong, nonatomic) CustomGLKView *glkView;
@@ -41,65 +42,9 @@
     [EAGLContext setCurrentContext:self.context];
     shader = [[Shader alloc] initVSShader:@"v_shader" fsShader:@"f_shader"];
     
-    
-    glGenBuffers(1, &texture);
-    // 绑定之前激活纹理
-//    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, texture);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-    //只能加载出PNG或者JPG
-//    UIImage *image = [UIImage imageNamed:@"123.jpg"];
-//    NSData *data = UIImageJPEGRepresentation(image, 1.0);
-    stbi_set_flip_vertically_on_load(true);
-    
-    GLint width, height, nrChannels;
-    const char *path1 = [[[NSBundle mainBundle] pathForResource:@"container" ofType:@"jpg"] cStringUsingEncoding:NSASCIIStringEncoding];
-//    const char *path1 = "/Users/weihu/OpenGL ES 3.0/Chapter01/Textures/Textures/awesomeface.png";
-    GLubyte *data = stbi_load(path1, &width, &height, &nrChannels, 0);
-    
-    if (data) {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    }
-    
-    stbi_image_free(data);
-
-
-    glGenBuffers(1, &texture1);
-    // 绑定之前激活纹理
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, texture1);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-    //只能加载出PNG或者JPG
-
-    GLint width1, height1, nrChannels1;
-
-    // 获取当
-
-//    const char *path = [[[NSBundle mainBundle] pathForResource:@"awesomeface" ofType:@"png"] cStringUsingEncoding:NSASCIIStringEncoding];
-    const char *path = "/Users/weihu/OpenGL ES 3.0/Chapter01/Textures/Textures/awesomeface.png";
-    GLubyte *data1 = stbi_load(path, &width1, &height1, &nrChannels1, 0);
-
-    if (data1) {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width1, height1, 0, GL_RGBA, GL_UNSIGNED_BYTE, data1);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    }
-//
-//    [shader use];
-//    [shader glUniform1i:"texture1" value:GL_TEXTURE0];
-//    [shader glUniform1i:"texture2" value:GL_TEXTURE1];
-//
-    stbi_image_free(data1);
+    cameraPos = GLKVector3Make(0.0, 0, 5.0);
+    texture = [self loadTexture:"/Users/weihu/OpenGL ES 3.0/Chapter01/Textures/Textures/container.jpg"];
+    texture1 = [self loadTexture:"/Users/weihu/OpenGL ES 3.0/Chapter01/Textures/Textures/awesomeface.png"];
     
     glEnable(GL_DEPTH_TEST);
     
@@ -108,7 +53,6 @@
 {
     glClearColor(0.5f, 1.0f, 1.0f, 1);
     glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
     
     GLfloat vVertices[] = {
         // 位置              // 纹理zuo biao
@@ -213,8 +157,7 @@
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texture);
     [shader glUniform1i:"texture1" value:0];
-//
-    
+
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, texture1);
     [shader glUniform1i:"texture2" value:1];
@@ -247,18 +190,27 @@
 //    };
 //    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, indices);
     
+    // 欧拉角
    
     GLKMatrix4 view2 = GLKUnitMatrix4;
     // 本身屏幕宽度
-    NSLog(@"%f ", _glkView.move_x);
+//    NSLog(@"%f ", _glkView.move_x);
     
-    GLfloat camX = sin(time) * 6.0;
-    GLfloat camZ = cos(time) * 6.0;
-
+//    GLfloat camX = 0 * 5.0;
+//    GLfloat camZ = 1 * 5.0;
+//
+//    GLfloat camX = sin(CFAbsoluteTimeGetCurrent()) * 6.0;
+//    GLfloat camZ = cos(CFAbsoluteTimeGetCurrent()) * 6.0;
     
-    view2 = GLKMatrix4MakeLookAt(camX, 0.0f, camZ,
-                                 0.0f, 0.0f, 0.0f,
-                                 0.0f, 1.0f, 0.0f);
+    
+    GLKVector3 cameraFront = GLKVector3Make(0.0f, 0.0f, 0.0f);
+    GLKVector3 cameraUp = GLKVector3Make(0.0f, 1.0f, 0.0f);
+    
+//    GLKVector3 newVec3 = GLKVector3Add(cameraPos, cameraFront);
+    
+    view2 = GLKMatrix4MakeLookAt(cameraPos.x, cameraPos.y, cameraPos.z,
+                                 cameraPos.x, cameraFront.y, cameraFront.z,
+                                 cameraUp.x, cameraUp.y, cameraUp.z);
     
     [shader setUniformMatrix4fv:"view" value:view2];
     
@@ -291,26 +243,71 @@
 }
 - (IBAction)leftBtnAction:(UIButton *)sender {
 //    UILongPressGestureRecognizer
-    time = CFAbsoluteTimeGetCurrent();
-    [_glkView setNeedsDisplay];
+//    time = CFAbsoluteTimeGetCurrent();
+//    [_glkView setNeedsDisplay];
 //    CFAbsoluteTimeGetCurrent()
+    
+    cameraPos.x += 1;
+    
+//    cameraPos.z = 5.0 * cos(asin(1.0/5.0));
+    [_glkView setNeedsDisplay];
 }
 
 - (IBAction)rightBtnAction:(UIButton *)sender {
-}
-- (IBAction)upBtnAction:(UIButton *)sender {
-}
-- (IBAction)downBtnAction:(UIButton *)sender {
-}
-- (void)longGestrueAction:(UILongPressGestureRecognizer *)longGes
-{
-    time = CFAbsoluteTimeGetCurrent();
+    cameraPos.x -= 1;
+//    cameraPos.z = 5.0 * cos(asin(1.0/5.0));
     [_glkView setNeedsDisplay];
 }
-- (GLuint)loadTexture:(NSString *)path
+- (IBAction)upBtnAction:(UIButton *)sender {
+    cameraPos.z += 1;
+    [_glkView setNeedsDisplay];
+}
+- (IBAction)downBtnAction:(UIButton *)sender {
+    cameraPos.z -= 1;
+    [_glkView setNeedsDisplay];
+}
+- (void)swipeGestrueAction:(UIPinchGestureRecognizer *)longGes
 {
+//    NSLog(@"缩放");
+    NSLog(@"%f",longGes.velocity);
+//    time = CFAbsoluteTimeGetCurrent();
+//    [_glkView setNeedsDisplay];
+}
+- (GLuint)loadTexture:(const char *)path
+{
+    GLuint textureID;
+    glGenBuffers(1, &textureID);
+    // 绑定之前激活纹理
+    //    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, textureID);
     
-    return 0;
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    
+    //只能加载出PNG或者JPG
+    //    UIImage *image = [UIImage imageNamed:@"123.jpg"];
+    //    NSData *data = UIImageJPEGRepresentation(image, 1.0);
+    stbi_set_flip_vertically_on_load(true);
+    
+    GLint width, height, nrChannels;
+    GLubyte *data = stbi_load(path, &width, &height, &nrChannels, 0);
+    
+    if (data) {
+        GLint internalformat = 0;
+        if (nrChannels == 3) {
+            internalformat = GL_RGB;
+        } else if (nrChannels == 4) {
+            internalformat = GL_RGBA;
+        }
+        glTexImage2D(GL_TEXTURE_2D, 0, internalformat, width, height, 0, internalformat, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    
+    stbi_image_free(data);
+    
+    return textureID;
 }
 #pragma mark - Setter Getter
 
@@ -323,9 +320,9 @@
         _glkView.backgroundColor = [UIColor orangeColor];
         _glkView.drawableDepthFormat = GLKViewDrawableDepthFormat24;
         
-        UILongPressGestureRecognizer *longGes = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longGestrueAction:)];
-        longGes.minimumPressDuration = 0.01;
-        [_glkView addGestureRecognizer:longGes];
+        UIPinchGestureRecognizer *ges = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGestrueAction:)];
+        
+        [_glkView addGestureRecognizer:ges];
         
     }
     return _glkView;
