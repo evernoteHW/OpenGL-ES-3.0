@@ -11,6 +11,7 @@
 
 @interface Shader : NSObject
 - (void)use;
+- (void)setUniformFloat:(const GLchar *)name value:(GLfloat)value;
 - (void)glUniform1i:(const GLchar *)name value:(GLfloat)value;
 - (void)setUniform3f:(const GLchar *)name value:(GLKVector3)value;
 - (void)setUniform4f:(const GLchar *)name value:(GLKVector4)value;

@@ -28,10 +28,15 @@
 - (void)use{
     glUseProgram (programObject);
 }
+- (void)setUniformFloat:(const GLchar *)name value:(GLfloat)value
+{
+    glUniform1f(glGetUniformLocation(programObject, name), value);
+}
 - (void)glUniform1i:(const GLchar *)name value:(GLfloat)value
 {
     glUniform1i(glGetUniformLocation(programObject, name), value);
 }
+
 - (void)setUniform3f:(const GLchar *)name value:(GLKVector3)value
 {
     glUniform3f(glGetUniformLocation(programObject, name), value.r, value.g, value.b);

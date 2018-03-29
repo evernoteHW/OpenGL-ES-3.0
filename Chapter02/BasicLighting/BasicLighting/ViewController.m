@@ -166,10 +166,17 @@
     
     [shader use];
     
-    [shader setUniform3f:"lightColor" value:GLKVector3Make(1.0, 1.0, 1.0)];
-    [shader setUniform3f:"objectColor" value:GLKVector3Make(0.5, 0.9, 0.5)];
     [shader setUniform3f:"lightPos" value:lightPos];
     [shader setUniform3f:"viewPos" value:cameraPos];
+    
+    [shader setUniform3f:"material.ambient" value:GLKVector3Make(1.0, 0.5f, 0.31f)];
+    [shader setUniform3f:"material.diffuse" value:GLKVector3Make(1.0, 0.5f, 0.31f)];
+    [shader setUniform3f:"material.specular" value:GLKVector3Make(0.5f, 0.5f, 0.5f)];
+    [shader setUniformFloat:"material.shininess" value:32.0];
+    
+    [shader setUniform3f:"light.ambient" value:GLKVector3Make(0.2f, 0.2f, 0.2f)];
+    [shader setUniform3f:"light.diffuse" value:GLKVector3Make(0.5f, 0.5f, 0.5f)];
+    [shader setUniform3f:"light.specular" value:GLKVector3Make(1.0f, 1.0f, 1.0f)];
     
     glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), vVertices );
     glEnableVertexAttribArray ( 0 );
