@@ -7,6 +7,7 @@ uniform vec3 viewPos;
 
 in vec3 FragPos;
 in vec3 Normal;
+in vec3 Color;
 
 // 结构体版本
 struct Material {
@@ -53,7 +54,8 @@ void main()
 
     // 单位矩阵余弦
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
-    vec3 specular = spec * vec3(texture(material.specular, TexCoords)) * light.specular;
+    
+    vec3 specular = spec * (vec3(texture(material.specular, TexCoords)) * Color) * light.specular;
 
     vec3 result = ambient + diffuse + specular;
     

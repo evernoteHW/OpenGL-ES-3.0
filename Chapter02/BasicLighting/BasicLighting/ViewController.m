@@ -212,6 +212,13 @@
         0.0f, 1.0f
     };
     
+    GLfloat cVertices[] = {
+        // 位置              // 颜色
+        1.0f, 0.0f, 0.0f,   // 右下
+        0.0f, 1.0f, 0.0f,   // 左下
+        0.0f, 0.0f, 1.0f    // 顶部
+    };
+    
     [shader use];
     
     [shader setUniform3f:"lightPos" value:lightPos];
@@ -237,6 +244,8 @@
     glVertexAttribPointer (2, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), texCoords );
     glEnableVertexAttribArray ( 2 );
     
+    glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), cVertices);
+    glEnableVertexAttribArray ( 3 );
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, diffuseMap);
