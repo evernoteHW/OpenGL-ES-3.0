@@ -169,6 +169,7 @@
     [shader setUniform3f:"lightColor" value:GLKVector3Make(1.0, 1.0, 1.0)];
     [shader setUniform3f:"objectColor" value:GLKVector3Make(0.5, 0.9, 0.5)];
     [shader setUniform3f:"lightPos" value:lightPos];
+    [shader setUniform3f:"viewPos" value:cameraPos];
     
     glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), vVertices );
     glEnableVertexAttribArray ( 0 );
@@ -268,12 +269,19 @@
     cameraPos.z -= 1;
     [_glkView setNeedsDisplay];
 }
-- (void)swipeGestrueAction:(UIPinchGestureRecognizer *)longGes
+- (void)swipeGestrueAction:(UITapGestureRecognizer *)longGes
 {
     //    NSLog(@"缩放");
-    NSLog(@"%f",longGes.velocity);
+    CGPoint point = [longGes locationInView:_glkView];
+    if (point.x > _glkView.center.x) {
+        cameraPos.x -= 1;
+    } else {
+        cameraPos.x += 1;
+        
+    }
+//    NSLog(@"%f",longGes.velocity);
     //    time = CFAbsoluteTimeGetCurrent();
-    //    [_glkView setNeedsDisplay];
+    [_glkView setNeedsDisplay];
 }
 - (void)mouse_callback:(GLfloat)xpos ypos:(GLfloat) ypos
 {
@@ -358,7 +366,7 @@
         _glkView.backgroundColor = [UIColor orangeColor];
         _glkView.drawableDepthFormat = GLKViewDrawableDepthFormat24;
         
-        UIPinchGestureRecognizer *ges = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGestrueAction:)];
+        UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGestrueAction:)];
         
         [_glkView addGestureRecognizer:ges];
         
