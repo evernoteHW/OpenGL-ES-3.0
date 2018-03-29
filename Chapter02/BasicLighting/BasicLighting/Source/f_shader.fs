@@ -20,9 +20,9 @@ struct Material {
 uniform Material material;
 
 struct Light {
-    vec3 position;
+//    vec3 position;
     // 定向光源
-//    vec3 direction;
+    vec3 direction;
     
     vec3 ambient;
     vec3 diffuse;
@@ -40,7 +40,8 @@ void main()
     vec3 ambient = vec3(texture(material.diffuse, TexCoords)) * light.ambient;
 
     // 漫反射
-    vec3 lightDir = normalize(light.position - FragPos);
+//    vec3 lightDir = normalize(light.position - FragPos);
+    vec3 lightDir = normalize(-light.direction);
     float diff = max(dot(Normal, lightDir), 0.0);
     // 漫反射因子)
     vec3 diffuse = diff * vec3(texture(material.diffuse, TexCoords)) * light.diffuse;
@@ -55,7 +56,7 @@ void main()
     // 单位矩阵余弦
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
     
-    vec3 specular = spec * (vec3(texture(material.specular, TexCoords)) * Color) * light.specular;
+    vec3 specular = spec * (vec3(texture(material.specular, TexCoords)) ) * light.specular;
 
     vec3 result = ambient + diffuse + specular;
     

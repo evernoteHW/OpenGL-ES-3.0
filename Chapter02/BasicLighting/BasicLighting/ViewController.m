@@ -231,7 +231,9 @@
     [shader setInt:"material.specular" value:1];
     [shader setUniformFloat:"material.shininess" value:32.0];
     
-    [shader setUniform3f:"light.position" value:lightPos];
+//    [shader setUniform3f:"light.position" value:lightPos];
+    
+    [shader setUniform3f:"light.direction" value:GLKVector3Make(0.0f, 0.05f, -0.3f)];
     
     [shader setUniform3f:"light.ambient" value:GLKVector3Make(0.2f, 0.2f, 0.2f)];
     [shader setUniform3f:"light.diffuse" value:GLKVector3Make(0.5f, 0.5f, 0.5f)];
@@ -291,26 +293,26 @@
         glDrawArrays(GL_TRIANGLES, 0, 36);
     }
     
-    [lightShader use];
-    glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), vVertices );
-    glEnableVertexAttribArray ( 0 );
-    
-    
-    //    GLKMatrix4 cubeView = GLKUnitMatrix4;
-    [lightShader setUniformMatrix4fv:"view" value:view2];
-    
-    GLKMatrix4 cubeProjection = GLKUnitMatrix4;
-    cubeProjection = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(45.0f), 1, 0.1f, 100.0f);
-    [lightShader setUniformMatrix4fv:"projection" value:cubeProjection];
-    
-    
-    GLKMatrix4 cubeModel = GLKUnitMatrix4;
-    
-    cubeModel = GLKMatrix4Translate(cubeModel, lightPos.x, lightPos.y, lightPos.z);
-    cubeModel = GLKMatrix4Scale(cubeModel, 0.5, 0.5, 0.5);
-    [lightShader setUniformMatrix4fv:"mode" value:cubeModel];
-    
-    glDrawArrays(GL_TRIANGLES, 0, 36);
+//    [lightShader use];
+//    glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), vVertices );
+//    glEnableVertexAttribArray ( 0 );
+//
+//
+//    //    GLKMatrix4 cubeView = GLKUnitMatrix4;
+//    [lightShader setUniformMatrix4fv:"view" value:view2];
+//
+//    GLKMatrix4 cubeProjection = GLKUnitMatrix4;
+//    cubeProjection = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(45.0f), 1, 0.1f, 100.0f);
+//    [lightShader setUniformMatrix4fv:"projection" value:cubeProjection];
+//
+//
+//    GLKMatrix4 cubeModel = GLKUnitMatrix4;
+//
+//    cubeModel = GLKMatrix4Translate(cubeModel, lightPos.x, lightPos.y, lightPos.z);
+//    cubeModel = GLKMatrix4Scale(cubeModel, 0.5, 0.5, 0.5);
+//    [lightShader setUniformMatrix4fv:"mode" value:cubeModel];
+//
+//    glDrawArrays(GL_TRIANGLES, 0, 36);
     
     
     //    [_glkView setNeedsDisplay];
