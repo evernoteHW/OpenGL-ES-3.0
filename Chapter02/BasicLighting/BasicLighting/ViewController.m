@@ -22,9 +22,7 @@
     GLuint programObject;
     Shader *shader;
     Shader *lightShader;
-    
-    GLuint texture;
-    GLuint texture1;
+  
     CGFloat move_orign;
     CGFloat move_x;
     CFAbsoluteTime time;
@@ -35,6 +33,7 @@
     GLfloat yaw;
     GLfloat pitch;
     GLKVector3 cameraFront;
+    GLKVector3 lightPos;
 }
 @property (strong, nonatomic) EAGLContext *context;
 @property (strong, nonatomic) CustomGLKView *glkView;
@@ -56,8 +55,7 @@
     
     cameraPos = GLKVector3Make(0.0, 0, 5.0);
     
-    texture = [self loadTexture:[[[NSBundle mainBundle] pathForResource:@"container" ofType:@"jpg"] UTF8String]];
-    texture1 = [self loadTexture:[[[NSBundle mainBundle] pathForResource:@"container2_specular" ofType:@"png"] UTF8String]];
+    lightPos = GLKVector3Make(-0.5, 0.5, 1.0);
     
     firstMouse = true;
     
@@ -119,77 +117,65 @@
         -0.5f,  0.5f, -0.5f,
     };
     
-    GLfloat cVertices[] = {
-        // 位置              // 颜色
-        1.0f, 0.0f, 0.0f,   // 右下
-        0.0f, 1.0f, 0.0f,   // 左下
-        0.0f, 0.0f, 1.0f    // 顶部
+    GLfloat normals[] = {
+        0.0f,  0.0f, -1.0f,
+       0.0f,  0.0f, -1.0f,
+       0.0f,  0.0f, -1.0f,
+       0.0f,  0.0f, -1.0f,
+        0.0f,  0.0f, -1.0f,
+        0.0f,  0.0f, -1.0f,
+      
+        0.0f,  0.0f,  1.0f,
+       0.0f,  0.0f,  1.0f,
+       0.0f,  0.0f,  1.0f,
+       0.0f,  0.0f,  1.0f,
+        0.0f,  0.0f,  1.0f,
+        0.0f,  0.0f,  1.0f,
+      
+       -1.0f,  0.0f,  0.0f,
+       -1.0f,  0.0f,  0.0f,
+       -1.0f,  0.0f,  0.0f,
+       -1.0f,  0.0f,  0.0f,
+       -1.0f,  0.0f,  0.0f,
+       -1.0f,  0.0f,  0.0f,
+      
+       1.0f,  0.0f,  0.0f,
+       1.0f,  0.0f,  0.0f,
+       1.0f,  0.0f,  0.0f,
+       1.0f,  0.0f,  0.0f,
+       1.0f,  0.0f,  0.0f,
+       1.0f,  0.0f,  0.0f,
+      
+        0.0f, -1.0f,  0.0f,
+       0.0f, -1.0f,  0.0f,
+       0.0f, -1.0f,  0.0f,
+       0.0f, -1.0f,  0.0f,
+        0.0f, -1.0f,  0.0f,
+        0.0f, -1.0f,  0.0f,
+      
+        0.0f,  1.0f,  0.0f,
+       0.0f,  1.0f,  0.0f,
+       0.0f,  1.0f,  0.0f,
+       0.0f,  1.0f,  0.0f,
+        0.0f,  1.0f,  0.0f,
+        0.0f,  1.0f,  0.0f
     };
     
-    GLfloat texCoords[] = {
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        1.0f, 1.0f,
-        1.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 0.0f,
-        
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        1.0f, 1.0f,
-        1.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 0.0f,
-        
-        1.0f, 0.0f,
-        1.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        
-        1.0f, 0.0f,
-        1.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-        1.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 0.0f,
-        0.0f, 1.0f,
-        
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-        1.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 0.0f,
-        0.0f, 1.0f
-    };
+    
     
     
     [shader use];
     
-    
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, texture);
-    [shader glUniform1i:"texture1" value:0];
-    
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, texture1);
-    [shader glUniform1i:"texture2" value:1];
+    [shader setUniform3f:"lightColor" value:GLKVector3Make(1.0, 1.0, 1.0)];
+    [shader setUniform3f:"objectColor" value:GLKVector3Make(0.5, 0.9, 0.5)];
+    [shader setUniform3f:"lightPos" value:lightPos];
     
     glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), vVertices );
     glEnableVertexAttribArray ( 0 );
     
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), cVertices);
+    glVertexAttribPointer (1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), normals );
     glEnableVertexAttribArray ( 1 );
     
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), texCoords);
-    glEnableVertexAttribArray ( 2 );
     
     cameraFront = GLKVector3Make(0.0f, 0.0f, -1.0);
     GLKVector3 cameraUp = GLKVector3Make(0.0f, 1.0f, 0.0f);
@@ -241,7 +227,8 @@
     
     
     GLKMatrix4 cubeModel = GLKUnitMatrix4;
-    cubeModel = GLKMatrix4Translate(cubeModel, 1.0, 1.0, 0.0);
+    
+    cubeModel = GLKMatrix4Translate(cubeModel, lightPos.x, lightPos.y, lightPos.z);
     cubeModel = GLKMatrix4Scale(cubeModel, 0.5, 0.5, 0.5);
     [lightShader setUniformMatrix4fv:"mode" value:cubeModel];
     
@@ -255,17 +242,22 @@
     //    time = CFAbsoluteTimeGetCurrent();
     //    [_glkView setNeedsDisplay];
     //    CFAbsoluteTimeGetCurrent()
-    
-    cameraPos.x += 1;
-    [_glkView setNeedsDisplay];
+//
+//    cameraPos.x += 1;
+//    [_glkView setNeedsDisplay];
     
     //    [self mouse_callback:10 ypos:10];
     
+    lightPos.x += 0.5;
+    [_glkView setNeedsDisplay];
 }
 
 - (IBAction)rightBtnAction:(UIButton *)sender {
-    cameraPos.x -= 1;
-    //    cameraPos.z = 5.0 * cos(asin(1.0/5.0));
+//    cameraPos.x -= 1;
+//    //    cameraPos.z = 5.0 * cos(asin(1.0/5.0));
+//    [_glkView setNeedsDisplay];
+    
+    lightPos.x -= 0.5;
     [_glkView setNeedsDisplay];
 }
 - (IBAction)upBtnAction:(UIButton *)sender {
