@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		74D70AC1206B9A8D000E053D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D70AC0206B9A8D000E053D /* AppDelegate.m */; };
+		74D70AC4206B9A8D000E053D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D70AC3206B9A8D000E053D /* ViewController.m */; };
+		74D70AC7206B9A8D000E053D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D70AC5206B9A8D000E053D /* Main.storyboard */; };
+		74D70AC9206B9A8D000E053D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D70AC8206B9A8D000E053D /* Assets.xcassets */; };
+		74D70ACC206B9A8D000E053D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D70ACA206B9A8D000E053D /* LaunchScreen.storyboard */; };
+		74D70ACF206B9A8D000E053D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D70ACE206B9A8D000E053D /* main.m */; };
+		74D70AD9206B9A8D000E053D /* LightCastersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D70AD8206B9A8D000E053D /* LightCastersTests.m */; };
+		74D70AE4206B9A8D000E053D /* LightCastersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D70AE3206B9A8D000E053D /* LightCastersUITests.m */; };
+		74D70AFB206B9AC0000E053D /* v_shader.vs in Resources */ = {isa = PBXBuildFile; fileRef = 74D70AF4206B9ABF000E053D /* v_shader.vs */; };
+		74D70AFC206B9AC0000E053D /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D70AF7206B9ABF000E053D /* Shader.m */; };
+		74D70AFD206B9AC0000E053D /* f_shader.fs in Resources */ = {isa = PBXBuildFile; fileRef = 74D70AF8206B9ABF000E053D /* f_shader.fs */; };
+		74D70AFE206B9AC0000E053D /* CustomGLKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D70AF9206B9AC0000E053D /* CustomGLKView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		74D70AD5206B9A8D000E053D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74D70AB4206B9A8D000E053D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74D70ABB206B9A8D000E053D;
+			remoteInfo = LightCasters;
+		};
+		74D70AE0206B9A8D000E053D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74D70AB4206B9A8D000E053D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74D70ABB206B9A8D000E053D;
+			remoteInfo = LightCasters;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		74D70ABC206B9A8D000E053D /* LightCasters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightCasters.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D70ABF206B9A8D000E053D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		74D70AC0206B9A8D000E053D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		74D70AC2206B9A8D000E053D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		74D70AC3206B9A8D000E053D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		74D70AC6206B9A8D000E053D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		74D70AC8206B9A8D000E053D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		74D70ACB206B9A8D000E053D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		74D70ACD206B9A8D000E053D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74D70ACE206B9A8D000E053D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		74D70AD4206B9A8D000E053D /* LightCastersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightCastersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D70AD8206B9A8D000E053D /* LightCastersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightCastersTests.m; sourceTree = "<group>"; };
+		74D70ADA206B9A8D000E053D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74D70ADF206B9A8D000E053D /* LightCastersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightCastersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D70AE3206B9A8D000E053D /* LightCastersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightCastersUITests.m; sourceTree = "<group>"; };
+		74D70AE5206B9A8D000E053D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74D70AF1206B9ABE000E053D /* CustomGLKView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomGLKView.h; sourceTree = "<group>"; };
+		74D70AF2206B9ABE000E053D /* aaaa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aaaa.png; sourceTree = "<group>"; };
+		74D70AF3206B9ABE000E053D /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
+		74D70AF4206B9ABF000E053D /* v_shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = v_shader.vs; sourceTree = "<group>"; };
+		74D70AF5206B9ABF000E053D /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
+		74D70AF6206B9ABF000E053D /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		74D70AF7206B9ABF000E053D /* Shader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
+		74D70AF8206B9ABF000E053D /* f_shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = f_shader.fs; sourceTree = "<group>"; };
+		74D70AF9206B9AC0000E053D /* CustomGLKView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomGLKView.m; sourceTree = "<group>"; };
+		74D70AFA206B9AC0000E053D /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		74D70AB9206B9A8D000E053D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D70AD1206B9A8D000E053D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D70ADC206B9A8D000E053D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		74D70AB3206B9A8D000E053D = {
+			isa = PBXGroup;
+			children = (
+				74D70ABE206B9A8D000E053D /* LightCasters */,
+				74D70AD7206B9A8D000E053D /* LightCastersTests */,
+				74D70AE2206B9A8D000E053D /* LightCastersUITests */,
+				74D70ABD206B9A8D000E053D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		74D70ABD206B9A8D000E053D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74D70ABC206B9A8D000E053D /* LightCasters.app */,
+				74D70AD4206B9A8D000E053D /* LightCastersTests.xctest */,
+				74D70ADF206B9A8D000E053D /* LightCastersUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74D70ABE206B9A8D000E053D /* LightCasters */ = {
+			isa = PBXGroup;
+			children = (
+				74D70AF5206B9ABF000E053D /* container.jpg */,
+				74D70AF2206B9ABE000E053D /* aaaa.png */,
+				74D70AF3206B9ABE000E053D /* awesomeface.png */,
+				74D70AF6206B9ABF000E053D /* Shader.h */,
+				74D70AF7206B9ABF000E053D /* Shader.m */,
+				74D70AFA206B9AC0000E053D /* stb_image.h */,
+				74D70AF4206B9ABF000E053D /* v_shader.vs */,
+				74D70AF8206B9ABF000E053D /* f_shader.fs */,
+				74D70AF1206B9ABE000E053D /* CustomGLKView.h */,
+				74D70AF9206B9AC0000E053D /* CustomGLKView.m */,
+				74D70ABF206B9A8D000E053D /* AppDelegate.h */,
+				74D70AC0206B9A8D000E053D /* AppDelegate.m */,
+				74D70AC2206B9A8D000E053D /* ViewController.h */,
+				74D70AC3206B9A8D000E053D /* ViewController.m */,
+				74D70AC5206B9A8D000E053D /* Main.storyboard */,
+				74D70AC8206B9A8D000E053D /* Assets.xcassets */,
+				74D70ACA206B9A8D000E053D /* LaunchScreen.storyboard */,
+				74D70ACD206B9A8D000E053D /* Info.plist */,
+				74D70ACE206B9A8D000E053D /* main.m */,
+			);
+			path = LightCasters;
+			sourceTree = "<group>";
+		};
+		74D70AD7206B9A8D000E053D /* LightCastersTests */ = {
+			isa = PBXGroup;
+			children = (
+				74D70AD8206B9A8D000E053D /* LightCastersTests.m */,
+				74D70ADA206B9A8D000E053D /* Info.plist */,
+			);
+			path = LightCastersTests;
+			sourceTree = "<group>";
+		};
+		74D70AE2206B9A8D000E053D /* LightCastersUITests */ = {
+			isa = PBXGroup;
+			children = (
+				74D70AE3206B9A8D000E053D /* LightCastersUITests.m */,
+				74D70AE5206B9A8D000E053D /* Info.plist */,
+			);
+			path = LightCastersUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		74D70ABB206B9A8D000E053D /* LightCasters */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74D70AE8206B9A8D000E053D /* Build configuration list for PBXNativeTarget "LightCasters" */;
+			buildPhases = (
+				74D70AB8206B9A8D000E053D /* Sources */,
+				74D70AB9206B9A8D000E053D /* Frameworks */,
+				74D70ABA206B9A8D000E053D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LightCasters;
+			productName = LightCasters;
+			productReference = 74D70ABC206B9A8D000E053D /* LightCasters.app */;
+			productType = "com.apple.product-type.application";
+		};
+		74D70AD3206B9A8D000E053D /* LightCastersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74D70AEB206B9A8D000E053D /* Build configuration list for PBXNativeTarget "LightCastersTests" */;
+			buildPhases = (
+				74D70AD0206B9A8D000E053D /* Sources */,
+				74D70AD1206B9A8D000E053D /* Frameworks */,
+				74D70AD2206B9A8D000E053D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74D70AD6206B9A8D000E053D /* PBXTargetDependency */,
+			);
+			name = LightCastersTests;
+			productName = LightCastersTests;
+			productReference = 74D70AD4206B9A8D000E053D /* LightCastersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		74D70ADE206B9A8D000E053D /* LightCastersUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74D70AEE206B9A8D000E053D /* Build configuration list for PBXNativeTarget "LightCastersUITests" */;
+			buildPhases = (
+				74D70ADB206B9A8D000E053D /* Sources */,
+				74D70ADC206B9A8D000E053D /* Frameworks */,
+				74D70ADD206B9A8D000E053D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74D70AE1206B9A8D000E053D /* PBXTargetDependency */,
+			);
+			name = LightCastersUITests;
+			productName = LightCastersUITests;
+			productReference = 74D70ADF206B9A8D000E053D /* LightCastersUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74D70AB4206B9A8D000E053D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = WeiHu;
+				TargetAttributes = {
+					74D70ABB206B9A8D000E053D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					74D70AD3206B9A8D000E053D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 74D70ABB206B9A8D000E053D;
+					};
+					74D70ADE206B9A8D000E053D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 74D70ABB206B9A8D000E053D;
+					};
+				};
+			};
+			buildConfigurationList = 74D70AB7206B9A8D000E053D /* Build configuration list for PBXProject "LightCasters" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 74D70AB3206B9A8D000E053D;
+			productRefGroup = 74D70ABD206B9A8D000E053D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74D70ABB206B9A8D000E053D /* LightCasters */,
+				74D70AD3206B9A8D000E053D /* LightCastersTests */,
+				74D70ADE206B9A8D000E053D /* LightCastersUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		74D70ABA206B9A8D000E053D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74D70ACC206B9A8D000E053D /* LaunchScreen.storyboard in Resources */,
+				74D70AC9206B9A8D000E053D /* Assets.xcassets in Resources */,
+				74D70AFD206B9AC0000E053D /* f_shader.fs in Resources */,
+				74D70AFB206B9AC0000E053D /* v_shader.vs in Resources */,
+				74D70AC7206B9A8D000E053D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D70AD2206B9A8D000E053D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D70ADD206B9A8D000E053D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		74D70AB8206B9A8D000E053D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74D70AC4206B9A8D000E053D /* ViewController.m in Sources */,
+				74D70AFE206B9AC0000E053D /* CustomGLKView.m in Sources */,
+				74D70ACF206B9A8D000E053D /* main.m in Sources */,
+				74D70AFC206B9AC0000E053D /* Shader.m in Sources */,
+				74D70AC1206B9A8D000E053D /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D70AD0206B9A8D000E053D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74D70AD9206B9A8D000E053D /* LightCastersTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D70ADB206B9A8D000E053D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74D70AE4206B9A8D000E053D /* LightCastersUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		74D70AD6206B9A8D000E053D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74D70ABB206B9A8D000E053D /* LightCasters */;
+			targetProxy = 74D70AD5206B9A8D000E053D /* PBXContainerItemProxy */;
+		};
+		74D70AE1206B9A8D000E053D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74D70ABB206B9A8D000E053D /* LightCasters */;
+			targetProxy = 74D70AE0206B9A8D000E053D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		74D70AC5206B9A8D000E053D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74D70AC6206B9A8D000E053D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		74D70ACA206B9A8D000E053D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74D70ACB206B9A8D000E053D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		74D70AE6206B9A8D000E053D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		74D70AE7206B9A8D000E053D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		74D70AE9206B9A8D000E053D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				INFOPLIST_FILE = LightCasters/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jd.com.LightCasters;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		74D70AEA206B9A8D000E053D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				INFOPLIST_FILE = LightCasters/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jd.com.LightCasters;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		74D70AEC206B9A8D000E053D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				INFOPLIST_FILE = LightCastersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jd.com.LightCastersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LightCasters.app/LightCasters";
+			};
+			name = Debug;
+		};
+		74D70AED206B9A8D000E053D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				INFOPLIST_FILE = LightCastersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jd.com.LightCastersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LightCasters.app/LightCasters";
+			};
+			name = Release;
+		};
+		74D70AEF206B9A8D000E053D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				INFOPLIST_FILE = LightCastersUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jd.com.LightCastersUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LightCasters;
+			};
+			name = Debug;
+		};
+		74D70AF0206B9A8D000E053D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				INFOPLIST_FILE = LightCastersUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jd.com.LightCastersUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LightCasters;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		74D70AB7206B9A8D000E053D /* Build configuration list for PBXProject "LightCasters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74D70AE6206B9A8D000E053D /* Debug */,
+				74D70AE7206B9A8D000E053D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74D70AE8206B9A8D000E053D /* Build configuration list for PBXNativeTarget "LightCasters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74D70AE9206B9A8D000E053D /* Debug */,
+				74D70AEA206B9A8D000E053D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74D70AEB206B9A8D000E053D /* Build configuration list for PBXNativeTarget "LightCastersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74D70AEC206B9A8D000E053D /* Debug */,
+				74D70AED206B9A8D000E053D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74D70AEE206B9A8D000E053D /* Build configuration list for PBXNativeTarget "LightCastersUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74D70AEF206B9A8D000E053D /* Debug */,
+				74D70AF0206B9A8D000E053D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74D70AB4206B9A8D000E053D /* Project object */;
+}

@@ -15,10 +15,19 @@
 		740380DE2068F06700EE7C37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 740380DD2068F06700EE7C37 /* main.m */; };
 		740380E82068F06700EE7C37 /* TexturesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 740380E72068F06700EE7C37 /* TexturesTests.m */; };
 		740380F32068F06700EE7C37 /* TexturesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 740380F22068F06700EE7C37 /* TexturesUITests.m */; };
-		740381082068F52D00EE7C37 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 740381072068F52D00EE7C37 /* test.png */; };
-		740DF361206A488D003743D8 /* CustomGLKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 740DF360206A488D003743D8 /* CustomGLKView.m */; };
 		74B78C8C206A16AE0020382A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B78C8B206A16AE0020382A /* OpenGLES.framework */; };
 		74B78C8E206A16B20020382A /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B78C8D206A16B20020382A /* GLKit.framework */; };
+		74D70B0A206BA657000E053D /* aaaa.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B00206BA657000E053D /* aaaa.png */; };
+		74D70B0B206BA657000E053D /* awesomeface.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B01206BA657000E053D /* awesomeface.png */; };
+		74D70B0C206BA657000E053D /* CustomGLKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D70B03206BA657000E053D /* CustomGLKView.m */; };
+		74D70B0D206BA657000E053D /* f_shader.fs in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B04206BA657000E053D /* f_shader.fs */; };
+		74D70B0E206BA657000E053D /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D70B06206BA657000E053D /* Shader.m */; };
+		74D70B0F206BA657000E053D /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B08206BA657000E053D /* test.png */; };
+		74D70B10206BA657000E053D /* v_shader.vs in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B09206BA657000E053D /* v_shader.vs */; };
+		74D70B12206BA692000E053D /* container.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B11206BA691000E053D /* container.jpg */; };
+		74D70B14206C74FC000E053D /* container2_specular.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B13206C74FC000E053D /* container2_specular.png */; };
+		74D70B16206C7D8E000E053D /* v_light.vs in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B15206C7D8E000E053D /* v_light.vs */; };
+		74D70B18206C7D9C000E053D /* f_light.fs in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B17206C7D9C000E053D /* f_light.fs */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,11 +64,22 @@
 		740380EE2068F06700EE7C37 /* TexturesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TexturesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		740380F22068F06700EE7C37 /* TexturesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TexturesUITests.m; sourceTree = "<group>"; };
 		740380F42068F06700EE7C37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		740381072068F52D00EE7C37 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
-		740DF35F206A488D003743D8 /* CustomGLKView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CustomGLKView.h; path = ../../../Chapter02/LightCasters/LightCasters/CustomGLKView.h; sourceTree = "<group>"; };
-		740DF360206A488D003743D8 /* CustomGLKView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CustomGLKView.m; path = ../../../Chapter02/LightCasters/LightCasters/CustomGLKView.m; sourceTree = "<group>"; };
 		74B78C8B206A16AE0020382A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		74B78C8D206A16B20020382A /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		74D70B00206BA657000E053D /* aaaa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aaaa.png; sourceTree = "<group>"; };
+		74D70B01206BA657000E053D /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
+		74D70B02206BA657000E053D /* CustomGLKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGLKView.h; sourceTree = "<group>"; };
+		74D70B03206BA657000E053D /* CustomGLKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGLKView.m; sourceTree = "<group>"; };
+		74D70B04206BA657000E053D /* f_shader.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = f_shader.fs; sourceTree = "<group>"; };
+		74D70B05206BA657000E053D /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		74D70B06206BA657000E053D /* Shader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
+		74D70B07206BA657000E053D /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		74D70B08206BA657000E053D /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		74D70B09206BA657000E053D /* v_shader.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = v_shader.vs; sourceTree = "<group>"; };
+		74D70B11206BA691000E053D /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
+		74D70B13206C74FC000E053D /* container2_specular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container2_specular.png; sourceTree = "<group>"; };
+		74D70B15206C7D8E000E053D /* v_light.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = v_light.vs; sourceTree = "<group>"; };
+		74D70B17206C7D9C000E053D /* f_light.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = f_light.fs; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +133,7 @@
 		740380CD2068F06700EE7C37 /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				74D70AFF206BA657000E053D /* Source */,
 				740380CE2068F06700EE7C37 /* AppDelegate.h */,
 				740380CF2068F06700EE7C37 /* AppDelegate.m */,
 				740380D12068F06700EE7C37 /* ViewController.h */,
@@ -121,10 +142,7 @@
 				740380D72068F06700EE7C37 /* Assets.xcassets */,
 				740380D92068F06700EE7C37 /* LaunchScreen.storyboard */,
 				740380DC2068F06700EE7C37 /* Info.plist */,
-				740381072068F52D00EE7C37 /* test.png */,
 				740380DD2068F06700EE7C37 /* main.m */,
-				740DF35F206A488D003743D8 /* CustomGLKView.h */,
-				740DF360206A488D003743D8 /* CustomGLKView.m */,
 			);
 			path = Textures;
 			sourceTree = "<group>";
@@ -154,6 +172,27 @@
 				74B78C8B206A16AE0020382A /* OpenGLES.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		74D70AFF206BA657000E053D /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				74D70B13206C74FC000E053D /* container2_specular.png */,
+				74D70B11206BA691000E053D /* container.jpg */,
+				74D70B00206BA657000E053D /* aaaa.png */,
+				74D70B01206BA657000E053D /* awesomeface.png */,
+				74D70B02206BA657000E053D /* CustomGLKView.h */,
+				74D70B03206BA657000E053D /* CustomGLKView.m */,
+				74D70B05206BA657000E053D /* Shader.h */,
+				74D70B06206BA657000E053D /* Shader.m */,
+				74D70B07206BA657000E053D /* stb_image.h */,
+				74D70B08206BA657000E053D /* test.png */,
+				74D70B09206BA657000E053D /* v_shader.vs */,
+				74D70B04206BA657000E053D /* f_shader.fs */,
+				74D70B15206C7D8E000E053D /* v_light.vs */,
+				74D70B17206C7D9C000E053D /* f_light.fs */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,10 +301,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74D70B0D206BA657000E053D /* f_shader.fs in Resources */,
+				74D70B14206C74FC000E053D /* container2_specular.png in Resources */,
+				74D70B18206C7D9C000E053D /* f_light.fs in Resources */,
 				740380DB2068F06700EE7C37 /* LaunchScreen.storyboard in Resources */,
+				74D70B0F206BA657000E053D /* test.png in Resources */,
+				74D70B16206C7D8E000E053D /* v_light.vs in Resources */,
 				740380D82068F06700EE7C37 /* Assets.xcassets in Resources */,
 				740380D62068F06700EE7C37 /* Main.storyboard in Resources */,
-				740381082068F52D00EE7C37 /* test.png in Resources */,
+				74D70B0B206BA657000E053D /* awesomeface.png in Resources */,
+				74D70B10206BA657000E053D /* v_shader.vs in Resources */,
+				74D70B12206BA692000E053D /* container.jpg in Resources */,
+				74D70B0A206BA657000E053D /* aaaa.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,9 +338,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				740380D32068F06700EE7C37 /* ViewController.m in Sources */,
-				740DF361206A488D003743D8 /* CustomGLKView.m in Sources */,
 				740380DE2068F06700EE7C37 /* main.m in Sources */,
+				74D70B0C206BA657000E053D /* CustomGLKView.m in Sources */,
 				740380D02068F06700EE7C37 /* AppDelegate.m in Sources */,
+				74D70B0E206BA657000E053D /* Shader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

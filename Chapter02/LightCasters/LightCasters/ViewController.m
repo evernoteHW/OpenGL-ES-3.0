@@ -49,8 +49,8 @@
     shader = [[Shader alloc] initVSShader:@"v_shader" fsShader:@"f_shader"];
     
     cameraPos = GLKVector3Make(0.0, 0, 5.0);
-    texture = [self loadTexture:"/Users/weihu/OpenGL ES 3.0/Chapter01/Textures/Textures/container.jpg"];
-    texture1 = [self loadTexture:"/Users/weihu/OpenGL ES 3.0/Chapter01/Textures/Textures/awesomeface.png"];
+    texture = [self loadTexture:"/Users/weihu/OpenGL ES 3.0/Chapter02/LightCasters/LightCasters/container.jpg"];
+    texture1 = [self loadTexture:"/Users/weihu/OpenGL ES 3.0/Chapter02/LightCasters/LightCasters/awesomeface.png"];
     
     glEnable(GL_DEPTH_TEST);
     
@@ -120,57 +120,57 @@
     };
     
     GLfloat texCoords[] = {
-         0.0f, 0.0f,
+        0.0f, 0.0f,
         1.0f, 0.0f,
         1.0f, 1.0f,
         1.0f, 1.0f,
-         0.0f, 1.0f,
-         0.0f, 0.0f,
-       
-         0.0f, 0.0f,
+        0.0f, 1.0f,
+        0.0f, 0.0f,
+        
+        0.0f, 0.0f,
         1.0f, 0.0f,
         1.0f, 1.0f,
         1.0f, 1.0f,
-         0.0f, 1.0f,
-         0.0f, 0.0f,
-       
-         1.0f, 0.0f,
-         1.0f, 1.0f,
-         0.0f, 1.0f,
-         0.0f, 1.0f,
-         0.0f, 0.0f,
-         1.0f, 0.0f,
-       
+        0.0f, 1.0f,
+        0.0f, 0.0f,
+        
         1.0f, 0.0f,
         1.0f, 1.0f,
         0.0f, 1.0f,
         0.0f, 1.0f,
         0.0f, 0.0f,
         1.0f, 0.0f,
-       
-         0.0f, 1.0f,
+        
+        1.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 1.0f,
+        0.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        
+        0.0f, 1.0f,
         1.0f, 1.0f,
         1.0f, 0.0f,
         1.0f, 0.0f,
-         0.0f, 0.0f,
-         0.0f, 1.0f,
-       
-         0.0f, 1.0f,
+        0.0f, 0.0f,
+        0.0f, 1.0f,
+        
+        0.0f, 1.0f,
         1.0f, 1.0f,
         1.0f, 0.0f,
         1.0f, 0.0f,
-         0.0f, 0.0f,
-         0.0f, 1.0f
+        0.0f, 0.0f,
+        0.0f, 1.0f
     };
     
-
+    
     [shader use];
-   
+    
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texture);
     [shader glUniform1i:"texture1" value:0];
-
+    
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, texture1);
     [shader glUniform1i:"texture2" value:1];
@@ -184,36 +184,36 @@
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), texCoords);
     glEnableVertexAttribArray ( 2 );
     
-
-//    这里要注意第三个参数, GL_UNSIGNED_INT在OpenGL ES下已经不支持了, 现在只支持: GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT这两个参数, 我想不用说也知道,INT点4个字节, BYTE占一个,SHORT占两个, 能省就省吧,
+    
+    //    这里要注意第三个参数, GL_UNSIGNED_INT在OpenGL ES下已经不支持了, 现在只支持: GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT这两个参数, 我想不用说也知道,INT点4个字节, BYTE占一个,SHORT占两个, 能省就省吧,
     
     //  GL_UNSIGNED_INT在OpenGL ES下已经不支持了
-//    glDrawArrays ( GL_TRIANGLES, 0, 6);
-
-//    void glDrawElements( GLenum mode, GLsizei count,GLenum type, const GLvoid *indices）；
+    //    glDrawArrays ( GL_TRIANGLES, 0, 6);
     
-//    mode指定绘制图元的类型，它应该是下列值之一，GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_QUAD_STRIP, GL_QUADS, and GL_POLYGON.
-//    count为绘制图元的数量乘上一个图元的顶点数。
-//    type为索引值的类型，只能是下列值之一：GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT。
-//    indices：指向索引存贮位置的指针。
-
-//    const GLubyte indices[] = {
-//        0, 1, 2,        // 第一个三角形
-//        2, 3, 0
-//    };
-//    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, indices);
+    //    void glDrawElements( GLenum mode, GLsizei count,GLenum type, const GLvoid *indices）；
+    
+    //    mode指定绘制图元的类型，它应该是下列值之一，GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_QUAD_STRIP, GL_QUADS, and GL_POLYGON.
+    //    count为绘制图元的数量乘上一个图元的顶点数。
+    //    type为索引值的类型，只能是下列值之一：GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT。
+    //    indices：指向索引存贮位置的指针。
+    
+    //    const GLubyte indices[] = {
+    //        0, 1, 2,        // 第一个三角形
+    //        2, 3, 0
+    //    };
+    //    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, indices);
     
     // 欧拉角
-   
+    
     GLKMatrix4 view2 = GLKUnitMatrix4;
     // 本身屏幕宽度
-//    NSLog(@"%f ", _glkView.move_x);
+    //    NSLog(@"%f ", _glkView.move_x);
     
-//    GLfloat camX = 0 * 5.0;
-//    GLfloat camZ = 1 * 5.0;
-//
-//    GLfloat camX = sin(CFAbsoluteTimeGetCurrent()) * 6.0;
-//    GLfloat camZ = cos(CFAbsoluteTimeGetCurrent()) * 6.0;
+    //    GLfloat camX = 0 * 5.0;
+    //    GLfloat camZ = 1 * 5.0;
+    //
+    //    GLfloat camX = sin(CFAbsoluteTimeGetCurrent()) * 6.0;
+    //    GLfloat camZ = cos(CFAbsoluteTimeGetCurrent()) * 6.0;
     
     
     cameraFront = GLKVector3Make(0.0f, 0.0f, -1.0);
@@ -232,17 +232,17 @@
     [shader setUniformMatrix4fv:"projection" value:projection];
     
     GLKVector3 cubePositions[] = {
-                                    GLKVector3Make( 0.0f,  0.0f,  0.0f),
-                                    GLKVector3Make( 2.0f,  5.0f, -15.0f),
-                                    GLKVector3Make(-1.5f, -2.2f, -2.5f),
-                                    GLKVector3Make(-3.8f, -2.0f, -12.3f),
-                                    GLKVector3Make( 2.4f, -0.4f, -3.5f),
-                                    GLKVector3Make(-1.7f,  3.0f, -7.5f),
-                                    GLKVector3Make( 1.3f, -2.0f, -2.5f),
-                                    GLKVector3Make( 1.5f,  2.0f, -2.5f),
-                                    GLKVector3Make( 1.5f,  0.2f, -1.5f),
-                                    GLKVector3Make(-1.3f,  1.0f, -1.5f)
-                                };
+        GLKVector3Make( 0.0f,  0.0f,  0.0f),
+        GLKVector3Make( 2.0f,  5.0f, -15.0f),
+        GLKVector3Make(-1.5f, -2.2f, -2.5f),
+        GLKVector3Make(-3.8f, -2.0f, -12.3f),
+        GLKVector3Make( 2.4f, -0.4f, -3.5f),
+        GLKVector3Make(-1.7f,  3.0f, -7.5f),
+        GLKVector3Make( 1.3f, -2.0f, -2.5f),
+        GLKVector3Make( 1.5f,  2.0f, -2.5f),
+        GLKVector3Make( 1.5f,  0.2f, -1.5f),
+        GLKVector3Make(-1.3f,  1.0f, -1.5f)
+    };
     
     for (NSInteger i = 0; i < 10; i++) {
         GLKMatrix4 model = GLKMatrix4TranslateWithVector3(GLKUnitMatrix4, cubePositions[i]);
@@ -252,24 +252,24 @@
         glDrawArrays(GL_TRIANGLES, 0, 36);
     }
     
-//    [_glkView setNeedsDisplay];
+    //    [_glkView setNeedsDisplay];
 }
 - (IBAction)leftBtnAction:(UIButton *)sender {
-//    UILongPressGestureRecognizer
-//    time = CFAbsoluteTimeGetCurrent();
-//    [_glkView setNeedsDisplay];
-//    CFAbsoluteTimeGetCurrent()
+    //    UILongPressGestureRecognizer
+    //    time = CFAbsoluteTimeGetCurrent();
+    //    [_glkView setNeedsDisplay];
+    //    CFAbsoluteTimeGetCurrent()
     
     cameraPos.x += 1;
     [_glkView setNeedsDisplay];
     
-//    [self mouse_callback:10 ypos:10];
+    //    [self mouse_callback:10 ypos:10];
     
 }
 
 - (IBAction)rightBtnAction:(UIButton *)sender {
     cameraPos.x -= 1;
-//    cameraPos.z = 5.0 * cos(asin(1.0/5.0));
+    //    cameraPos.z = 5.0 * cos(asin(1.0/5.0));
     [_glkView setNeedsDisplay];
 }
 - (IBAction)upBtnAction:(UIButton *)sender {
@@ -282,19 +282,19 @@
 }
 - (void)swipeGestrueAction:(UIPinchGestureRecognizer *)longGes
 {
-//    NSLog(@"缩放");
+    //    NSLog(@"缩放");
     NSLog(@"%f",longGes.velocity);
-//    time = CFAbsoluteTimeGetCurrent();
-//    [_glkView setNeedsDisplay];
+    //    time = CFAbsoluteTimeGetCurrent();
+    //    [_glkView setNeedsDisplay];
 }
 - (void)mouse_callback:(GLfloat)xpos ypos:(GLfloat) ypos
 {
-//    if(firstMouse)
-//    {
-//        lastX = xpos;
-//        lastY = ypos;
-//        firstMouse = false;
-//    }
+    //    if(firstMouse)
+    //    {
+    //        lastX = xpos;
+    //        lastY = ypos;
+    //        firstMouse = false;
+    //    }
     
     float xoffset = xpos - lastX;
     float yoffset = lastY - ypos;
@@ -389,4 +389,5 @@
 }
 
 @end
+
 

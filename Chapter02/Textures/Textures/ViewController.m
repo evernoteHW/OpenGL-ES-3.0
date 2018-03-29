@@ -21,6 +21,8 @@
 {
     GLuint programObject;
     Shader *shader;
+    Shader *lightShader;
+    
     GLuint texture;
     GLuint texture1;
     CGFloat move_orign;
@@ -42,17 +44,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    glEnable(GL_DEPTH_TEST);
     [self.view addSubview:self.glkView];
     // 必须要在shader之前创建
     [EAGLContext setCurrentContext:self.context];
-    shader = [[Shader alloc] initVSShader:@"v_shader" fsShader:@"f_shader"];
-    
-    cameraPos = GLKVector3Make(0.0, 0, 5.0);
-    texture = [self loadTexture:"/Users/weihu/OpenGL ES 3.0/Chapter01/Textures/Textures/container.jpg"];
-    texture1 = [self loadTexture:"/Users/weihu/OpenGL ES 3.0/Chapter01/Textures/Textures/awesomeface.png"];
     
     glEnable(GL_DEPTH_TEST);
+    
+    shader = [[Shader alloc] initVSShader:@"v_shader" fsShader:@"f_shader"];
+    lightShader = [[Shader alloc] initVSShader:@"v_light" fsShader:@"f_light"];
+    
+    cameraPos = GLKVector3Make(0.0, 0, 5.0);
+    
+    texture = [self loadTexture:[[[NSBundle mainBundle] pathForResource:@"container" ofType:@"jpg"] UTF8String]];
+    texture1 = [self loadTexture:[[[NSBundle mainBundle] pathForResource:@"container2_specular" ofType:@"png"] UTF8String]];
     
     firstMouse = true;
     
@@ -64,7 +69,9 @@
 }
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
-    glClearColor(0.5f, 1.0f, 1.0f, 1);
+    
+    
+    glClearColor(0.0f, 0.0f, 0.0f, 1);
     glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     GLfloat vVertices[] = {
@@ -184,44 +191,12 @@
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), texCoords);
     glEnableVertexAttribArray ( 2 );
     
-
-//    这里要注意第三个参数, GL_UNSIGNED_INT在OpenGL ES下已经不支持了, 现在只支持: GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT这两个参数, 我想不用说也知道,INT点4个字节, BYTE占一个,SHORT占两个, 能省就省吧,
-    
-    //  GL_UNSIGNED_INT在OpenGL ES下已经不支持了
-//    glDrawArrays ( GL_TRIANGLES, 0, 6);
-
-//    void glDrawElements( GLenum mode, GLsizei count,GLenum type, const GLvoid *indices）；
-    
-//    mode指定绘制图元的类型，它应该是下列值之一，GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_QUAD_STRIP, GL_QUADS, and GL_POLYGON.
-//    count为绘制图元的数量乘上一个图元的顶点数。
-//    type为索引值的类型，只能是下列值之一：GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT。
-//    indices：指向索引存贮位置的指针。
-
-//    const GLubyte indices[] = {
-//        0, 1, 2,        // 第一个三角形
-//        2, 3, 0
-//    };
-//    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, indices);
-    
-    // 欧拉角
-   
-    GLKMatrix4 view2 = GLKUnitMatrix4;
-    // 本身屏幕宽度
-//    NSLog(@"%f ", _glkView.move_x);
-    
-//    GLfloat camX = 0 * 5.0;
-//    GLfloat camZ = 1 * 5.0;
-//
-//    GLfloat camX = sin(CFAbsoluteTimeGetCurrent()) * 6.0;
-//    GLfloat camZ = cos(CFAbsoluteTimeGetCurrent()) * 6.0;
-    
-    
     cameraFront = GLKVector3Make(0.0f, 0.0f, -1.0);
     GLKVector3 cameraUp = GLKVector3Make(0.0f, 1.0f, 0.0f);
     
     GLKVector3 newVec3 = GLKVector3Add(cameraPos, cameraFront);
     
-    view2 = GLKMatrix4MakeLookAt(cameraPos.x, cameraPos.y, cameraPos.z,
+    GLKMatrix4 view2 = GLKMatrix4MakeLookAt(cameraPos.x, cameraPos.y, cameraPos.z,
                                  newVec3.x, newVec3.y, newVec3.z,
                                  cameraUp.x, cameraUp.y, cameraUp.z);
     
@@ -251,6 +226,27 @@
         [shader setUniformMatrix4fv:"model" value:model];
         glDrawArrays(GL_TRIANGLES, 0, 36);
     }
+    
+    [lightShader use];
+    glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), vVertices );
+    glEnableVertexAttribArray ( 0 );
+
+
+//    GLKMatrix4 cubeView = GLKUnitMatrix4;
+    [lightShader setUniformMatrix4fv:"view" value:view2];
+
+    GLKMatrix4 cubeProjection = GLKUnitMatrix4;
+    cubeProjection = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(45.0f), 1, 0.1f, 100.0f);
+    [lightShader setUniformMatrix4fv:"projection" value:cubeProjection];
+    
+    
+    GLKMatrix4 cubeModel = GLKUnitMatrix4;
+    cubeModel = GLKMatrix4Translate(cubeModel, 1.0, 1.0, 0.0);
+    cubeModel = GLKMatrix4Scale(cubeModel, 0.5, 0.5, 0.5);
+    [lightShader setUniformMatrix4fv:"mode" value:cubeModel];
+    
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+    
     
 //    [_glkView setNeedsDisplay];
 }
