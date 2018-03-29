@@ -57,9 +57,9 @@
     lightShader = [[Shader alloc] initVSShader:@"v_light" fsShader:@"f_light"];
     
     diffuseMap = [self loadTexture:"/Users/weihu/OpenGL ES 3.0/Chapter02/BasicLighting/BasicLighting/Source/container.png"];
-    specularMap= [self loadTexture:"/Users/weihu/OpenGL ES 3.0/Chapter02/BasicLighting/BasicLighting/Source/container2_specular.png"];
+    specularMap= [self loadTexture:"/Users/weihu/OpenGL ES 3.0/Chapter02/BasicLighting/BasicLighting/Source/matrix.jpg"];
     cameraPos = GLKVector3Make(0.0, 0, 5.0);
-    
+    cameraFront = GLKVector3Make(0.0f, 0.0f, -1.0);
     lightPos = GLKVector3Make(-0.5, 0.5, 1.0);
     
     firstMouse = true;
@@ -231,13 +231,18 @@
     [shader setInt:"material.specular" value:1];
     [shader setUniformFloat:"material.shininess" value:32.0];
     
-//    [shader setUniform3f:"light.position" value:lightPos];
-    
-    [shader setUniform3f:"light.direction" value:GLKVector3Make(0.0f, 0.05f, -0.3f)];
+    [shader setUniform3f:"light.position" value:lightPos];
+    [shader setUniform3f:"light.direction" value:cameraFront];
+    [shader setUniformFloat:"light.cutOff" value:cos(GLKMathDegreesToRadians(6.0))];
     
     [shader setUniform3f:"light.ambient" value:GLKVector3Make(0.2f, 0.2f, 0.2f)];
     [shader setUniform3f:"light.diffuse" value:GLKVector3Make(0.5f, 0.5f, 0.5f)];
     [shader setUniform3f:"light.specular" value:GLKVector3Make(1.0f, 1.0f, 1.0f)];
+    
+    [shader setUniformFloat:"light.constant" value:1.0f];
+    [shader setUniformFloat:"light.linear" value:0.09f];
+    [shader setUniformFloat:"light.quadratic" value:0.032f];
+    
     
     glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), vVertices );
     glEnableVertexAttribArray ( 0 );
@@ -257,7 +262,7 @@
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, specularMap);
     
-    cameraFront = GLKVector3Make(0.0f, 0.0f, -1.0);
+    
     GLKVector3 cameraUp = GLKVector3Make(0.0f, 1.0f, 0.0f);
     
     GLKVector3 newVec3 = GLKVector3Add(cameraPos, cameraFront);
@@ -293,26 +298,26 @@
         glDrawArrays(GL_TRIANGLES, 0, 36);
     }
     
-//    [lightShader use];
-//    glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), vVertices );
-//    glEnableVertexAttribArray ( 0 );
-//
-//
-//    //    GLKMatrix4 cubeView = GLKUnitMatrix4;
-//    [lightShader setUniformMatrix4fv:"view" value:view2];
-//
-//    GLKMatrix4 cubeProjection = GLKUnitMatrix4;
-//    cubeProjection = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(45.0f), 1, 0.1f, 100.0f);
-//    [lightShader setUniformMatrix4fv:"projection" value:cubeProjection];
-//
-//
-//    GLKMatrix4 cubeModel = GLKUnitMatrix4;
-//
-//    cubeModel = GLKMatrix4Translate(cubeModel, lightPos.x, lightPos.y, lightPos.z);
-//    cubeModel = GLKMatrix4Scale(cubeModel, 0.5, 0.5, 0.5);
-//    [lightShader setUniformMatrix4fv:"mode" value:cubeModel];
-//
-//    glDrawArrays(GL_TRIANGLES, 0, 36);
+    [lightShader use];
+    glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), vVertices );
+    glEnableVertexAttribArray ( 0 );
+
+
+    //    GLKMatrix4 cubeView = GLKUnitMatrix4;
+    [lightShader setUniformMatrix4fv:"view" value:view2];
+
+    GLKMatrix4 cubeProjection = GLKUnitMatrix4;
+    cubeProjection = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(45.0f), 1, 0.1f, 100.0f);
+    [lightShader setUniformMatrix4fv:"projection" value:cubeProjection];
+
+
+    GLKMatrix4 cubeModel = GLKUnitMatrix4;
+
+    cubeModel = GLKMatrix4Translate(cubeModel, lightPos.x, lightPos.y, lightPos.z);
+    cubeModel = GLKMatrix4Scale(cubeModel, 0.5, 0.5, 0.5);
+    [lightShader setUniformMatrix4fv:"mode" value:cubeModel];
+
+    glDrawArrays(GL_TRIANGLES, 0, 36);
     
     
     //    [_glkView setNeedsDisplay];

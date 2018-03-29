@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		74C09FB9206CD516000AED15 /* container.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C09FB8206CD515000AED15 /* container.png */; };
+		74C09FBD206CE963000AED15 /* matrix.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 74C09FBC206CE962000AED15 /* matrix.jpg */; };
 		74D70B27206C89B1000E053D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D70B26206C89B1000E053D /* AppDelegate.m */; };
 		74D70B2F206C89B1000E053D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B2E206C89B1000E053D /* Assets.xcassets */; };
 		74D70B32206C89B1000E053D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B30206C89B1000E053D /* LaunchScreen.storyboard */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		74C09FB8206CD515000AED15 /* container.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container.png; sourceTree = "<group>"; };
+		74C09FBC206CE962000AED15 /* matrix.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = matrix.jpg; sourceTree = "<group>"; };
 		74D70B22206C89B1000E053D /* BasicLighting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicLighting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D70B25206C89B1000E053D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		74D70B26206C89B1000E053D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		74D70B9A206C8AEB000E053D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				74C09FBC206CE962000AED15 /* matrix.jpg */,
 				74C09FB8206CD515000AED15 /* container.png */,
 				74D70B9B206C8AEB000E053D /* aaaa.png */,
 				74D70B9C206C8AEB000E053D /* awesomeface.png */,
@@ -292,6 +295,7 @@
 				74D70BB5206C8AEB000E053D /* v_shader.vs in Resources */,
 				74D70BAC206C8AEB000E053D /* container.jpg in Resources */,
 				74D70BB4206C8AEB000E053D /* v_light.vs in Resources */,
+				74C09FBD206CE963000AED15 /* matrix.jpg in Resources */,
 				74D70BB1206C8AEB000E053D /* f_shader.fs in Resources */,
 				74D70BB0206C8AEB000E053D /* f_light.fs in Resources */,
 				74D70B32206C89B1000E053D /* LaunchScreen.storyboard in Resources */,
