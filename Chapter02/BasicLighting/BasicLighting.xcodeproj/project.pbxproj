@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74C09FB9206CD516000AED15 /* container.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C09FB8206CD515000AED15 /* container.png */; };
 		74D70B27206C89B1000E053D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D70B26206C89B1000E053D /* AppDelegate.m */; };
 		74D70B2F206C89B1000E053D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B2E206C89B1000E053D /* Assets.xcassets */; };
 		74D70B32206C89B1000E053D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B30206C89B1000E053D /* LaunchScreen.storyboard */; };
@@ -16,7 +17,6 @@
 		74D70BAA206C8AEB000E053D /* aaaa.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B9B206C8AEB000E053D /* aaaa.png */; };
 		74D70BAB206C8AEB000E053D /* awesomeface.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B9C206C8AEB000E053D /* awesomeface.png */; };
 		74D70BAC206C8AEB000E053D /* container.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B9D206C8AEB000E053D /* container.jpg */; };
-		74D70BAD206C8AEB000E053D /* container2_specular 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B9E206C8AEB000E053D /* container2_specular 2.png */; };
 		74D70BAE206C8AEB000E053D /* container2_specular.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D70B9F206C8AEB000E053D /* container2_specular.png */; };
 		74D70BAF206C8AEB000E053D /* CustomGLKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D70BA1206C8AEB000E053D /* CustomGLKView.m */; };
 		74D70BB0206C8AEB000E053D /* f_light.fs in Resources */ = {isa = PBXBuildFile; fileRef = 74D70BA2206C8AEB000E053D /* f_light.fs */; };
@@ -47,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74C09FB8206CD515000AED15 /* container.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container.png; sourceTree = "<group>"; };
 		74D70B22206C89B1000E053D /* BasicLighting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicLighting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D70B25206C89B1000E053D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		74D70B26206C89B1000E053D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -63,7 +64,6 @@
 		74D70B9B206C8AEB000E053D /* aaaa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aaaa.png; sourceTree = "<group>"; };
 		74D70B9C206C8AEB000E053D /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
 		74D70B9D206C8AEB000E053D /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
-		74D70B9E206C8AEB000E053D /* container2_specular 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "container2_specular 2.png"; sourceTree = "<group>"; };
 		74D70B9F206C8AEB000E053D /* container2_specular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container2_specular.png; sourceTree = "<group>"; };
 		74D70BA0206C8AEB000E053D /* CustomGLKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGLKView.h; sourceTree = "<group>"; };
 		74D70BA1206C8AEB000E053D /* CustomGLKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGLKView.m; sourceTree = "<group>"; };
@@ -163,10 +163,10 @@
 		74D70B9A206C8AEB000E053D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				74C09FB8206CD515000AED15 /* container.png */,
 				74D70B9B206C8AEB000E053D /* aaaa.png */,
 				74D70B9C206C8AEB000E053D /* awesomeface.png */,
 				74D70B9D206C8AEB000E053D /* container.jpg */,
-				74D70B9E206C8AEB000E053D /* container2_specular 2.png */,
 				74D70B9F206C8AEB000E053D /* container2_specular.png */,
 				74D70BA0206C8AEB000E053D /* CustomGLKView.h */,
 				74D70BA1206C8AEB000E053D /* CustomGLKView.m */,
@@ -288,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74C09FB9206CD516000AED15 /* container.png in Resources */,
 				74D70BB5206C8AEB000E053D /* v_shader.vs in Resources */,
 				74D70BAC206C8AEB000E053D /* container.jpg in Resources */,
 				74D70BB4206C8AEB000E053D /* v_light.vs in Resources */,
@@ -299,7 +300,6 @@
 				74D70BAB206C8AEB000E053D /* awesomeface.png in Resources */,
 				74D70BAE206C8AEB000E053D /* container2_specular.png in Resources */,
 				74D70BAA206C8AEB000E053D /* aaaa.png in Resources */,
-				74D70BAD206C8AEB000E053D /* container2_specular 2.png in Resources */,
 				74D70BB3206C8AEB000E053D /* test.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

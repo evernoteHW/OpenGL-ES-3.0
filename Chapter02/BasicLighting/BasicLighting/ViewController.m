@@ -8,12 +8,13 @@
 
 #import "ViewController.h"
 #import <GLKit/GLKit.h>
-#import "Shader.h"
+
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #import <GLKit/GLKit.h>
 #import "CustomGLKView.h"
+#import "Shader.h"
 
 #define GLKUnitMatrix4 GLKMatrix4Make(1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f)
 
@@ -34,6 +35,8 @@
     GLfloat pitch;
     GLKVector3 cameraFront;
     GLKVector3 lightPos;
+    GLuint diffuseMap;
+    GLuint specularMap;
 }
 @property (strong, nonatomic) EAGLContext *context;
 @property (strong, nonatomic) CustomGLKView *glkView;
@@ -53,6 +56,8 @@
     shader = [[Shader alloc] initVSShader:@"v_shader" fsShader:@"f_shader"];
     lightShader = [[Shader alloc] initVSShader:@"v_light" fsShader:@"f_light"];
     
+    diffuseMap = [self loadTexture:"/Users/weihu/OpenGL ES 3.0/Chapter02/BasicLighting/BasicLighting/Source/container.png"];
+    specularMap= [self loadTexture:"/Users/weihu/OpenGL ES 3.0/Chapter02/BasicLighting/BasicLighting/Source/container2_specular.png"];
     cameraPos = GLKVector3Make(0.0, 0, 5.0);
     
     lightPos = GLKVector3Make(-0.5, 0.5, 1.0);
@@ -162,7 +167,50 @@
     };
     
     
-    
+    float texCoords[] = {
+        // positions          // normals           // texture coords
+        0.0f, 0.0f,
+       1.0f, 0.0f,
+       1.0f, 1.0f,
+       1.0f, 1.0f,
+        0.0f, 1.0f,
+        0.0f, 0.0f,
+      
+        0.0f, 0.0f,
+       1.0f, 0.0f,
+       1.0f, 1.0f,
+       1.0f, 1.0f,
+        0.0f, 1.0f,
+        0.0f, 0.0f,
+      
+        1.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 1.0f,
+        0.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+      
+       1.0f, 0.0f,
+       1.0f, 1.0f,
+       0.0f, 1.0f,
+       0.0f, 1.0f,
+       0.0f, 0.0f,
+       1.0f, 0.0f,
+      
+        0.0f, 1.0f,
+       1.0f, 1.0f,
+       1.0f, 0.0f,
+       1.0f, 0.0f,
+        0.0f, 0.0f,
+        0.0f, 1.0f,
+      
+        0.0f, 1.0f,
+       1.0f, 1.0f,
+       1.0f, 0.0f,
+       1.0f, 0.0f,
+        0.0f, 0.0f,
+        0.0f, 1.0f
+    };
     
     [shader use];
     
@@ -170,8 +218,10 @@
     [shader setUniform3f:"viewPos" value:cameraPos];
     
     [shader setUniform3f:"material.ambient" value:GLKVector3Make(0.5, 0.5f, 0.31f)];
-    [shader setUniform3f:"material.diffuse" value:GLKVector3Make(1.0, 0.5f, 0.31f)];
-    [shader setUniform3f:"material.specular" value:GLKVector3Make(0.5f, 0.5f, 0.5f)];
+//    [shader setUniform3f:"material.diffuse" value:GLKVector3Make(1.0, 0.5f, 0.31f)];
+    [shader setInt:"material.diffuse" value:0];
+//    [shader setUniform3f:"material.specular" value:GLKVector3Make(0.5f, 0.5f, 0.5f)];
+    [shader setInt:"material.specular" value:1];
     [shader setUniformFloat:"material.shininess" value:32.0];
     
     [shader setUniform3f:"light.ambient" value:GLKVector3Make(0.2f, 0.2f, 0.2f)];
@@ -184,6 +234,15 @@
     glVertexAttribPointer (1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), normals );
     glEnableVertexAttribArray ( 1 );
     
+    glVertexAttribPointer (2, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), texCoords );
+    glEnableVertexAttribArray ( 2 );
+    
+    
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, diffuseMap);
+    
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, specularMap);
     
     cameraFront = GLKVector3Make(0.0f, 0.0f, -1.0);
     GLKVector3 cameraUp = GLKVector3Make(0.0f, 1.0f, 0.0f);
