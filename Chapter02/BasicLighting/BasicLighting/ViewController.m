@@ -221,7 +221,7 @@
     
     [shader use];
     
-    [shader setUniform3f:"lightPos" value:lightPos];
+    
     [shader setUniform3f:"viewPos" value:cameraPos];
     
     [shader setUniform3f:"material.ambient" value:GLKVector3Make(0.5, 0.5f, 0.31f)];
@@ -230,6 +230,8 @@
 //    [shader setUniform3f:"material.specular" value:GLKVector3Make(0.5f, 0.5f, 0.5f)];
     [shader setInt:"material.specular" value:1];
     [shader setUniformFloat:"material.shininess" value:32.0];
+    
+    [shader setUniform3f:"light.position" value:lightPos];
     
     [shader setUniform3f:"light.ambient" value:GLKVector3Make(0.2f, 0.2f, 0.2f)];
     [shader setUniform3f:"light.diffuse" value:GLKVector3Make(0.5f, 0.5f, 0.5f)];

@@ -13,8 +13,6 @@ in vec3 Color;
 struct Material {
     vec3 ambient;
     sampler2D diffuse;
-//    vec3 diffuse;
-//    vec3 specular;
     sampler2D specular;
     float shininess;
 };
@@ -23,6 +21,8 @@ uniform Material material;
 
 struct Light {
     vec3 position;
+    // 定向光源
+//    vec3 direction;
     
     vec3 ambient;
     vec3 diffuse;
@@ -40,7 +40,7 @@ void main()
     vec3 ambient = vec3(texture(material.diffuse, TexCoords)) * light.ambient;
 
     // 漫反射
-    vec3 lightDir = normalize(lightPos - FragPos);
+    vec3 lightDir = normalize(light.position - FragPos);
     float diff = max(dot(Normal, lightDir), 0.0);
     // 漫反射因子)
     vec3 diffuse = diff * vec3(texture(material.diffuse, TexCoords)) * light.diffuse;
