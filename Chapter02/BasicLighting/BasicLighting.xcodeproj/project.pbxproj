@@ -10,7 +10,6 @@
 		74B2B00D206DE4C300343E09 /* Mesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B00C206DE4C300343E09 /* Mesh.m */; };
 		74B2B010206DE7B800343E09 /* Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B00F206DE7B800343E09 /* Model.mm */; };
 		74B2B07A206E06B400343E09 /* MedelCPlusPlus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B078206E06B400343E09 /* MedelCPlusPlus.cpp */; };
-		74B2B088206E114200343E09 /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B2B087206E114200343E09 /* libassimp.a */; };
 		74B2B08B206E119200343E09 /* libzlibstatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B2B089206E119200343E09 /* libzlibstatic.a */; };
 		74B2B08C206E119200343E09 /* libIrrXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B2B08A206E119200343E09 /* libIrrXML.a */; };
 		74C09FB9206CD516000AED15 /* container.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C09FB8206CD515000AED15 /* container.png */; };
@@ -61,7 +60,6 @@
 		74B2B00F206DE7B800343E09 /* Model.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Model.mm; sourceTree = "<group>"; };
 		74B2B078206E06B400343E09 /* MedelCPlusPlus.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MedelCPlusPlus.cpp; sourceTree = "<group>"; };
 		74B2B079206E06B400343E09 /* MedelCPlusPlus.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MedelCPlusPlus.hpp; sourceTree = "<group>"; };
-		74B2B087206E114200343E09 /* libassimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libassimp.a; path = ../../../../../usr/local/lib/libassimp.a; sourceTree = "<group>"; };
 		74B2B089206E119200343E09 /* libzlibstatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzlibstatic.a; path = ../../../../../usr/local/lib/libzlibstatic.a; sourceTree = "<group>"; };
 		74B2B08A206E119200343E09 /* libIrrXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libIrrXML.a; path = ../../../../../usr/local/lib/libIrrXML.a; sourceTree = "<group>"; };
 		74C09FB8206CD515000AED15 /* container.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container.png; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 			files = (
 				74B2B08B206E119200343E09 /* libzlibstatic.a in Frameworks */,
 				74B2B08C206E119200343E09 /* libIrrXML.a in Frameworks */,
-				74B2B088206E114200343E09 /* libassimp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +128,6 @@
 			children = (
 				74B2B08A206E119200343E09 /* libIrrXML.a */,
 				74B2B089206E119200343E09 /* libzlibstatic.a */,
-				74B2B087206E114200343E09 /* libassimp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -476,7 +472,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${gltool_header}";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LIBRARY_SEARCH_PATHS = "${gltool_lib}";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lassimp";
@@ -526,7 +524,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${gltool_header}";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LIBRARY_SEARCH_PATHS = "${gltool_lib}";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-lassimp";
 				SDKROOT = iphoneos;
