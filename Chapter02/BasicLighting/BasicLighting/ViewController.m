@@ -10,12 +10,14 @@
 #import <GLKit/GLKit.h>
 
 
+//#import <assimp/Importer.hpp>
+
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #import <GLKit/GLKit.h>
 #import "CustomGLKView.h"
 #import "Shader.h"
-
+#import "Mesh.h"
 #define GLKUnitMatrix4 GLKMatrix4Make(1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f)
 
 @interface ViewController () <GLKViewDelegate>
@@ -56,8 +58,9 @@
     shader = [[Shader alloc] initVSShader:@"v_shader" fsShader:@"f_shader"];
     lightShader = [[Shader alloc] initVSShader:@"v_light" fsShader:@"f_light"];
     
-    diffuseMap = [self loadTexture:"/Users/weihu/OpenGL ES 3.0/Chapter02/BasicLighting/BasicLighting/Source/container.png"];
-    specularMap= [self loadTexture:"/Users/weihu/OpenGL ES 3.0/Chapter02/BasicLighting/BasicLighting/Source/matrix.jpg"];
+    
+    diffuseMap = [self loadTexture:[[[NSBundle mainBundle] pathForResource:@"container" ofType:@"png"] UTF8String]];
+    specularMap= [self loadTexture:[[[NSBundle mainBundle] pathForResource:@"container2_specular" ofType:@"png"] UTF8String]];
     cameraPos = GLKVector3Make(0.0, 0, 5.0);
     cameraFront = GLKVector3Make(0.0f, 0.0f, -1.0);
     lightPos = GLKVector3Make(-0.5, 0.5, 1.0);
@@ -69,12 +72,13 @@
     yaw   = -90.0f;
     pitch =  0.0f;
     
+    NSLog(@"%lu", sizeof(ViewController.self));
+    
 }
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
     
-    
-    glClearColor(0.0f, 0.0f, 0.0f, 1);
+    glClearColor(0.4f, 0.4f, 1.0f, 1);
     glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     GLfloat vVertices[] = {

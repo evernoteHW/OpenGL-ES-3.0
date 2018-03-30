@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74B2B00D206DE4C300343E09 /* Mesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B00C206DE4C300343E09 /* Mesh.m */; };
+		74B2B010206DE7B800343E09 /* Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B00F206DE7B800343E09 /* Model.mm */; };
+		74B2B07A206E06B400343E09 /* MedelCPlusPlus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B078206E06B400343E09 /* MedelCPlusPlus.cpp */; };
+		74B2B088206E114200343E09 /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B2B087206E114200343E09 /* libassimp.a */; };
+		74B2B08B206E119200343E09 /* libzlibstatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B2B089206E119200343E09 /* libzlibstatic.a */; };
+		74B2B08C206E119200343E09 /* libIrrXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B2B08A206E119200343E09 /* libIrrXML.a */; };
 		74C09FB9206CD516000AED15 /* container.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C09FB8206CD515000AED15 /* container.png */; };
 		74C09FBD206CE963000AED15 /* matrix.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 74C09FBC206CE962000AED15 /* matrix.jpg */; };
 		74D70B27206C89B1000E053D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D70B26206C89B1000E053D /* AppDelegate.m */; };
@@ -48,6 +54,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74B2B00A206DE17000343E09 /* mesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mesh.h; sourceTree = "<group>"; };
+		74B2B00B206DE4C300343E09 /* Mesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
+		74B2B00C206DE4C300343E09 /* Mesh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mesh.m; sourceTree = "<group>"; };
+		74B2B00E206DE7B800343E09 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		74B2B00F206DE7B800343E09 /* Model.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Model.mm; sourceTree = "<group>"; };
+		74B2B078206E06B400343E09 /* MedelCPlusPlus.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MedelCPlusPlus.cpp; sourceTree = "<group>"; };
+		74B2B079206E06B400343E09 /* MedelCPlusPlus.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MedelCPlusPlus.hpp; sourceTree = "<group>"; };
+		74B2B087206E114200343E09 /* libassimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libassimp.a; path = ../../../../../usr/local/lib/libassimp.a; sourceTree = "<group>"; };
+		74B2B089206E119200343E09 /* libzlibstatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzlibstatic.a; path = ../../../../../usr/local/lib/libzlibstatic.a; sourceTree = "<group>"; };
+		74B2B08A206E119200343E09 /* libIrrXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libIrrXML.a; path = ../../../../../usr/local/lib/libIrrXML.a; sourceTree = "<group>"; };
 		74C09FB8206CD515000AED15 /* container.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container.png; sourceTree = "<group>"; };
 		74C09FBC206CE962000AED15 /* matrix.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = matrix.jpg; sourceTree = "<group>"; };
 		74D70B22206C89B1000E053D /* BasicLighting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicLighting.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +103,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74B2B08B206E119200343E09 /* libzlibstatic.a in Frameworks */,
+				74B2B08C206E119200343E09 /* libIrrXML.a in Frameworks */,
+				74B2B088206E114200343E09 /* libassimp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +126,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74B2B005206DDC3100343E09 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74B2B08A206E119200343E09 /* libIrrXML.a */,
+				74B2B089206E119200343E09 /* libzlibstatic.a */,
+				74B2B087206E114200343E09 /* libassimp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		74D70B19206C89B1000E053D = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +143,7 @@
 				74D70B3D206C89B1000E053D /* BasicLightingTests */,
 				74D70B48206C89B1000E053D /* BasicLightingUITests */,
 				74D70B23206C89B1000E053D /* Products */,
+				74B2B005206DDC3100343E09 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +165,12 @@
 				74D70B26206C89B1000E053D /* AppDelegate.m */,
 				74D70BBA206C8B34000E053D /* ViewController.h */,
 				74D70BB9206C8B34000E053D /* ViewController.m */,
+				74B2B00B206DE4C300343E09 /* Mesh.h */,
+				74B2B00C206DE4C300343E09 /* Mesh.m */,
+				74B2B00E206DE7B800343E09 /* Model.h */,
+				74B2B00F206DE7B800343E09 /* Model.mm */,
+				74B2B078206E06B400343E09 /* MedelCPlusPlus.cpp */,
+				74B2B079206E06B400343E09 /* MedelCPlusPlus.hpp */,
 				74D70BB6206C8B2D000E053D /* Main.storyboard */,
 				74D70B2E206C89B1000E053D /* Assets.xcassets */,
 				74D70B30206C89B1000E053D /* LaunchScreen.storyboard */,
@@ -181,6 +217,7 @@
 				74D70BA2206C8AEB000E053D /* f_light.fs */,
 				74D70BA9206C8AEB000E053D /* v_shader.vs */,
 				74D70BA3206C8AEB000E053D /* f_shader.fs */,
+				74B2B00A206DE17000343E09 /* mesh.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -331,7 +368,10 @@
 			files = (
 				74D70B35206C89B1000E053D /* main.m in Sources */,
 				74D70BAF206C8AEB000E053D /* CustomGLKView.m in Sources */,
+				74B2B00D206DE4C300343E09 /* Mesh.m in Sources */,
 				74D70B27206C89B1000E053D /* AppDelegate.m in Sources */,
+				74B2B010206DE7B800343E09 /* Model.mm in Sources */,
+				74B2B07A206E06B400343E09 /* MedelCPlusPlus.cpp in Sources */,
 				74D70BB2206C8AEB000E053D /* Shader.m in Sources */,
 				74D70BBB206C8B34000E053D /* ViewController.m in Sources */,
 			);
@@ -439,6 +479,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lassimp";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -487,6 +528,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-lassimp";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -498,9 +540,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				HEADER_SEARCH_PATHS = "${gltool_header}";
 				INFOPLIST_FILE = BasicLighting/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jd.com.BasicLighting;
+				LIBRARY_SEARCH_PATHS = "${gltool_lib}";
+				OTHER_LDFLAGS = "-lassimp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.piaojubao.BasicLighting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -512,9 +558,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				HEADER_SEARCH_PATHS = "${gltool_header}";
 				INFOPLIST_FILE = BasicLighting/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jd.com.BasicLighting;
+				LIBRARY_SEARCH_PATHS = "${gltool_lib}";
+				OTHER_LDFLAGS = "-lassimp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.piaojubao.BasicLighting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
