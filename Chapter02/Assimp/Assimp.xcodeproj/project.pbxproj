@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04059DEB206F338C0093AE3D /* libIrrXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04059DE8206F338C0093AE3D /* libIrrXML.a */; };
+		04059DEC206F338C0093AE3D /* libzlibstatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04059DE9206F338C0093AE3D /* libzlibstatic.a */; };
+		0405A24D206F3A770093AE3D /* libassimp-fat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0405A24C206F3A770093AE3D /* libassimp-fat.a */; };
 		74B2B09B206E289000343E09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B09A206E289000343E09 /* AppDelegate.m */; };
 		74B2B09E206E289000343E09 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B09D206E289000343E09 /* ViewController.mm */; };
 		74B2B0A1206E289000343E09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B2B09F206E289000343E09 /* Main.storyboard */; };
@@ -72,6 +75,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04059DE8206F338C0093AE3D /* libIrrXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libIrrXML.a; path = ../../../../../usr/local/lib/libIrrXML.a; sourceTree = "<group>"; };
+		04059DE9206F338C0093AE3D /* libzlibstatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzlibstatic.a; path = ../../../../../usr/local/lib/libzlibstatic.a; sourceTree = "<group>"; };
+		0405A24C206F3A770093AE3D /* libassimp-fat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libassimp-fat.a"; path = "../../../../../usr/local/lib/iOS/libassimp-fat.a"; sourceTree = "<group>"; };
 		74B2B096206E289000343E09 /* Assimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B2B099206E289000343E09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		74B2B09A206E289000343E09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -137,6 +143,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0405A24D206F3A770093AE3D /* libassimp-fat.a in Frameworks */,
+				04059DEB206F338C0093AE3D /* libIrrXML.a in Frameworks */,
+				04059DEC206F338C0093AE3D /* libzlibstatic.a in Frameworks */,
 				74B2B0CF206E28C000343E09 /* GLKit.framework in Frameworks */,
 				74B2B0CD206E28BB00343E09 /* OpenGLES.framework in Frameworks */,
 			);
@@ -221,6 +230,9 @@
 		74B2B0CB206E28BB00343E09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0405A24C206F3A770093AE3D /* libassimp-fat.a */,
+				04059DE8206F338C0093AE3D /* libIrrXML.a */,
+				04059DE9206F338C0093AE3D /* libzlibstatic.a */,
 				74B2B0CE206E28C000343E09 /* GLKit.framework */,
 				74B2B0CC206E28BB00343E09 /* OpenGLES.framework */,
 			);
@@ -614,12 +626,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "${gltool_header}";
 				INFOPLIST_FILE = Assimp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "${gltool_lib}";
-				OTHER_LDFLAGS = "-lassimp";
+				LIBRARY_SEARCH_PATHS = (
+					"${gltool_lib}",
+					/usr/local/lib/iOS,
+				);
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lstdc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.piaojubao.Assimp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -632,12 +651,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6RE56K8B4Z;
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "${gltool_header}";
 				INFOPLIST_FILE = Assimp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "${gltool_lib}";
-				OTHER_LDFLAGS = "-lassimp";
+				LIBRARY_SEARCH_PATHS = (
+					"${gltool_lib}",
+					/usr/local/lib/iOS,
+				);
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lstdc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.piaojubao.Assimp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

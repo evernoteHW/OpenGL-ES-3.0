@@ -16,7 +16,10 @@
 @end
 
 @implementation Shader
-
+- (GLuint)getProgramObject;
+{
+    return programObject;;
+}
 - (instancetype)initVSShader:(NSString *)vsShader fsShader:(NSString *)fsShader
 {
     self = [super init];

@@ -10,14 +10,14 @@
 #import <GLKit/GLKit.h>
 
 
-//#import <assimp/Importer.hpp>
+#import <assimp/Importer.hpp>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #import <GLKit/GLKit.h>
 #import "CustomGLKView.h"
 #import "Shader.h"
-//#import "Mesh.h"
+#import "mesh.h"
 #import "model.h"
 
 #define GLKUnitMatrix4 GLKMatrix4Make(1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f)
@@ -41,6 +41,7 @@
     GLKVector3 lightPos;
     GLuint diffuseMap;
     GLuint specularMap;
+    Model *ourModel;
 }
 @property (strong, nonatomic) EAGLContext *context;
 @property (strong, nonatomic) CustomGLKView *glkView;
@@ -74,8 +75,8 @@
     yaw   = -90.0f;
     pitch =  0.0f;
     
-    NSLog(@"%lu", sizeof(ViewController.self));
-    Model *aa = nil;
+//    NSLog(@"%lu", sizeof(ViewController.self));
+    ourModel = new Model("/Users/mac/OpenGL-ES-3.0/Chapter02/Assimp/Assimp/nanosuit/nanosuit.obj");
     
 //    Model ourModel("/Users/weihu/LearnOpenGL/Assimp/OpenGL/nanosuit/nanosuit.obj");
     
@@ -86,190 +87,190 @@
     glClearColor(0.4f, 0.4f, 1.0f, 1);
     glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    GLfloat vVertices[] = {
-        // 位置              // 纹理zuo biao
-        -0.5f, -0.5f, -0.5f,
-        0.5f, -0.5f, -0.5f,
-        0.5f,  0.5f, -0.5f,
-        0.5f,  0.5f, -0.5f,
-        -0.5f,  0.5f, -0.5f,
-        -0.5f, -0.5f, -0.5f,
-        
-        -0.5f, -0.5f,  0.5f,
-        0.5f, -0.5f,  0.5f,
-        0.5f,  0.5f,  0.5f,
-        0.5f,  0.5f,  0.5f,
-        -0.5f,  0.5f,  0.5f,
-        -0.5f, -0.5f,  0.5f,
-        
-        -0.5f,  0.5f,  0.5f,
-        -0.5f,  0.5f, -0.5f,
-        -0.5f, -0.5f, -0.5f,
-        -0.5f, -0.5f, -0.5f,
-        -0.5f, -0.5f,  0.5f,
-        -0.5f,  0.5f,  0.5f,
-        
-        0.5f,  0.5f,  0.5f,
-        0.5f,  0.5f, -0.5f,
-        0.5f, -0.5f, -0.5f,
-        0.5f, -0.5f, -0.5f,
-        0.5f, -0.5f,  0.5f,
-        0.5f,  0.5f,  0.5f,
-        
-        -0.5f, -0.5f, -0.5f,
-        0.5f, -0.5f, -0.5f,
-        0.5f, -0.5f,  0.5f,
-        0.5f, -0.5f,  0.5f,
-        -0.5f, -0.5f,  0.5f,
-        -0.5f, -0.5f, -0.5f,
-        
-        -0.5f,  0.5f, -0.5f,
-        0.5f,  0.5f, -0.5f,
-        0.5f,  0.5f,  0.5f,
-        0.5f,  0.5f,  0.5f,
-        -0.5f,  0.5f,  0.5f,
-        -0.5f,  0.5f, -0.5f,
-    };
-    
-    GLfloat normals[] = {
-        0.0f,  0.0f, -1.0f,
-        0.0f,  0.0f, -1.0f,
-        0.0f,  0.0f, -1.0f,
-        0.0f,  0.0f, -1.0f,
-        0.0f,  0.0f, -1.0f,
-        0.0f,  0.0f, -1.0f,
-        
-        0.0f,  0.0f,  1.0f,
-        0.0f,  0.0f,  1.0f,
-        0.0f,  0.0f,  1.0f,
-        0.0f,  0.0f,  1.0f,
-        0.0f,  0.0f,  1.0f,
-        0.0f,  0.0f,  1.0f,
-        
-        -1.0f,  0.0f,  0.0f,
-        -1.0f,  0.0f,  0.0f,
-        -1.0f,  0.0f,  0.0f,
-        -1.0f,  0.0f,  0.0f,
-        -1.0f,  0.0f,  0.0f,
-        -1.0f,  0.0f,  0.0f,
-        
-        1.0f,  0.0f,  0.0f,
-        1.0f,  0.0f,  0.0f,
-        1.0f,  0.0f,  0.0f,
-        1.0f,  0.0f,  0.0f,
-        1.0f,  0.0f,  0.0f,
-        1.0f,  0.0f,  0.0f,
-        
-        0.0f, -1.0f,  0.0f,
-        0.0f, -1.0f,  0.0f,
-        0.0f, -1.0f,  0.0f,
-        0.0f, -1.0f,  0.0f,
-        0.0f, -1.0f,  0.0f,
-        0.0f, -1.0f,  0.0f,
-        
-        0.0f,  1.0f,  0.0f,
-        0.0f,  1.0f,  0.0f,
-        0.0f,  1.0f,  0.0f,
-        0.0f,  1.0f,  0.0f,
-        0.0f,  1.0f,  0.0f,
-        0.0f,  1.0f,  0.0f
-    };
-    
-    
-    float texCoords[] = {
-        // positions          // normals           // texture coords
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        1.0f, 1.0f,
-        1.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 0.0f,
-        
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        1.0f, 1.0f,
-        1.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 0.0f,
-        
-        1.0f, 0.0f,
-        1.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        
-        1.0f, 0.0f,
-        1.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-        1.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 0.0f,
-        0.0f, 1.0f,
-        
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-        1.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 0.0f,
-        0.0f, 1.0f
-    };
-    
-    GLfloat cVertices[] = {
-        // 位置              // 颜色
-        1.0f, 0.0f, 0.0f,   // 右下
-        0.0f, 1.0f, 0.0f,   // 左下
-        0.0f, 0.0f, 1.0f    // 顶部
-    };
+//    GLfloat vVertices[] = {
+//        // 位置              // 纹理zuo biao
+//        -0.5f, -0.5f, -0.5f,
+//        0.5f, -0.5f, -0.5f,
+//        0.5f,  0.5f, -0.5f,
+//        0.5f,  0.5f, -0.5f,
+//        -0.5f,  0.5f, -0.5f,
+//        -0.5f, -0.5f, -0.5f,
+//
+//        -0.5f, -0.5f,  0.5f,
+//        0.5f, -0.5f,  0.5f,
+//        0.5f,  0.5f,  0.5f,
+//        0.5f,  0.5f,  0.5f,
+//        -0.5f,  0.5f,  0.5f,
+//        -0.5f, -0.5f,  0.5f,
+//
+//        -0.5f,  0.5f,  0.5f,
+//        -0.5f,  0.5f, -0.5f,
+//        -0.5f, -0.5f, -0.5f,
+//        -0.5f, -0.5f, -0.5f,
+//        -0.5f, -0.5f,  0.5f,
+//        -0.5f,  0.5f,  0.5f,
+//
+//        0.5f,  0.5f,  0.5f,
+//        0.5f,  0.5f, -0.5f,
+//        0.5f, -0.5f, -0.5f,
+//        0.5f, -0.5f, -0.5f,
+//        0.5f, -0.5f,  0.5f,
+//        0.5f,  0.5f,  0.5f,
+//
+//        -0.5f, -0.5f, -0.5f,
+//        0.5f, -0.5f, -0.5f,
+//        0.5f, -0.5f,  0.5f,
+//        0.5f, -0.5f,  0.5f,
+//        -0.5f, -0.5f,  0.5f,
+//        -0.5f, -0.5f, -0.5f,
+//
+//        -0.5f,  0.5f, -0.5f,
+//        0.5f,  0.5f, -0.5f,
+//        0.5f,  0.5f,  0.5f,
+//        0.5f,  0.5f,  0.5f,
+//        -0.5f,  0.5f,  0.5f,
+//        -0.5f,  0.5f, -0.5f,
+//    };
+//
+//    GLfloat normals[] = {
+//        0.0f,  0.0f, -1.0f,
+//        0.0f,  0.0f, -1.0f,
+//        0.0f,  0.0f, -1.0f,
+//        0.0f,  0.0f, -1.0f,
+//        0.0f,  0.0f, -1.0f,
+//        0.0f,  0.0f, -1.0f,
+//
+//        0.0f,  0.0f,  1.0f,
+//        0.0f,  0.0f,  1.0f,
+//        0.0f,  0.0f,  1.0f,
+//        0.0f,  0.0f,  1.0f,
+//        0.0f,  0.0f,  1.0f,
+//        0.0f,  0.0f,  1.0f,
+//
+//        -1.0f,  0.0f,  0.0f,
+//        -1.0f,  0.0f,  0.0f,
+//        -1.0f,  0.0f,  0.0f,
+//        -1.0f,  0.0f,  0.0f,
+//        -1.0f,  0.0f,  0.0f,
+//        -1.0f,  0.0f,  0.0f,
+//
+//        1.0f,  0.0f,  0.0f,
+//        1.0f,  0.0f,  0.0f,
+//        1.0f,  0.0f,  0.0f,
+//        1.0f,  0.0f,  0.0f,
+//        1.0f,  0.0f,  0.0f,
+//        1.0f,  0.0f,  0.0f,
+//
+//        0.0f, -1.0f,  0.0f,
+//        0.0f, -1.0f,  0.0f,
+//        0.0f, -1.0f,  0.0f,
+//        0.0f, -1.0f,  0.0f,
+//        0.0f, -1.0f,  0.0f,
+//        0.0f, -1.0f,  0.0f,
+//
+//        0.0f,  1.0f,  0.0f,
+//        0.0f,  1.0f,  0.0f,
+//        0.0f,  1.0f,  0.0f,
+//        0.0f,  1.0f,  0.0f,
+//        0.0f,  1.0f,  0.0f,
+//        0.0f,  1.0f,  0.0f
+//    };
+//
+//
+//    float texCoords[] = {
+//        // positions          // normals           // texture coords
+//        0.0f, 0.0f,
+//        1.0f, 0.0f,
+//        1.0f, 1.0f,
+//        1.0f, 1.0f,
+//        0.0f, 1.0f,
+//        0.0f, 0.0f,
+//
+//        0.0f, 0.0f,
+//        1.0f, 0.0f,
+//        1.0f, 1.0f,
+//        1.0f, 1.0f,
+//        0.0f, 1.0f,
+//        0.0f, 0.0f,
+//
+//        1.0f, 0.0f,
+//        1.0f, 1.0f,
+//        0.0f, 1.0f,
+//        0.0f, 1.0f,
+//        0.0f, 0.0f,
+//        1.0f, 0.0f,
+//
+//        1.0f, 0.0f,
+//        1.0f, 1.0f,
+//        0.0f, 1.0f,
+//        0.0f, 1.0f,
+//        0.0f, 0.0f,
+//        1.0f, 0.0f,
+//
+//        0.0f, 1.0f,
+//        1.0f, 1.0f,
+//        1.0f, 0.0f,
+//        1.0f, 0.0f,
+//        0.0f, 0.0f,
+//        0.0f, 1.0f,
+//
+//        0.0f, 1.0f,
+//        1.0f, 1.0f,
+//        1.0f, 0.0f,
+//        1.0f, 0.0f,
+//        0.0f, 0.0f,
+//        0.0f, 1.0f
+//    };
+//
+//    GLfloat cVertices[] = {
+//        // 位置              // 颜色
+//        1.0f, 0.0f, 0.0f,   // 右下
+//        0.0f, 1.0f, 0.0f,   // 左下
+//        0.0f, 0.0f, 1.0f    // 顶部
+//    };
     
     [shader use];
     
     
-    [shader setUniform3f:"viewPos" value:cameraPos];
+//    [shader setUniform3f:"viewPos" value:cameraPos];
+//
+//    [shader setUniform3f:"material.ambient" value:GLKVector3Make(0.5, 0.5f, 0.31f)];
+//    //    [shader setUniform3f:"material.diffuse" value:GLKVector3Make(1.0, 0.5f, 0.31f)];
+//    [shader setInt:"material.diffuse" value:0];
+//    //    [shader setUniform3f:"material.specular" value:GLKVector3Make(0.5f, 0.5f, 0.5f)];
+//    [shader setInt:"material.specular" value:1];
+//    [shader setUniformFloat:"material.shininess" value:32.0];
+//
+//    [shader setUniform3f:"light.position" value:lightPos];
+//    [shader setUniform3f:"light.direction" value:cameraFront];
+//    [shader setUniformFloat:"light.cutOff" value:cos(GLKMathDegreesToRadians(6.0))];
+//
+//    [shader setUniform3f:"light.ambient" value:GLKVector3Make(0.2f, 0.2f, 0.2f)];
+//    [shader setUniform3f:"light.diffuse" value:GLKVector3Make(0.5f, 0.5f, 0.5f)];
+//    [shader setUniform3f:"light.specular" value:GLKVector3Make(1.0f, 1.0f, 1.0f)];
+//
+//    [shader setUniformFloat:"light.constant" value:1.0f];
+//    [shader setUniformFloat:"light.linear" value:0.09f];
+//    [shader setUniformFloat:"light.quadratic" value:0.032f];
+//
     
-    [shader setUniform3f:"material.ambient" value:GLKVector3Make(0.5, 0.5f, 0.31f)];
-    //    [shader setUniform3f:"material.diffuse" value:GLKVector3Make(1.0, 0.5f, 0.31f)];
-    [shader setInt:"material.diffuse" value:0];
-    //    [shader setUniform3f:"material.specular" value:GLKVector3Make(0.5f, 0.5f, 0.5f)];
-    [shader setInt:"material.specular" value:1];
-    [shader setUniformFloat:"material.shininess" value:32.0];
-    
-    [shader setUniform3f:"light.position" value:lightPos];
-    [shader setUniform3f:"light.direction" value:cameraFront];
-    [shader setUniformFloat:"light.cutOff" value:cos(GLKMathDegreesToRadians(6.0))];
-    
-    [shader setUniform3f:"light.ambient" value:GLKVector3Make(0.2f, 0.2f, 0.2f)];
-    [shader setUniform3f:"light.diffuse" value:GLKVector3Make(0.5f, 0.5f, 0.5f)];
-    [shader setUniform3f:"light.specular" value:GLKVector3Make(1.0f, 1.0f, 1.0f)];
-    
-    [shader setUniformFloat:"light.constant" value:1.0f];
-    [shader setUniformFloat:"light.linear" value:0.09f];
-    [shader setUniformFloat:"light.quadratic" value:0.032f];
-    
-    
-    glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), vVertices );
-    glEnableVertexAttribArray ( 0 );
-    
-    glVertexAttribPointer (1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), normals );
-    glEnableVertexAttribArray ( 1 );
-    
-    glVertexAttribPointer (2, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), texCoords );
-    glEnableVertexAttribArray ( 2 );
-    
-    glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), cVertices);
-    glEnableVertexAttribArray ( 3 );
-    
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, diffuseMap);
-    
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, specularMap);
+//    glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), vVertices );
+//    glEnableVertexAttribArray ( 0 );
+//
+//    glVertexAttribPointer (1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), normals );
+//    glEnableVertexAttribArray ( 1 );
+//
+//    glVertexAttribPointer (2, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), texCoords );
+//    glEnableVertexAttribArray ( 2 );
+//
+//    glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), cVertices);
+//    glEnableVertexAttribArray ( 3 );
+//
+//    glActiveTexture(GL_TEXTURE0);
+//    glBindTexture(GL_TEXTURE_2D, diffuseMap);
+//
+//    glActiveTexture(GL_TEXTURE1);
+//    glBindTexture(GL_TEXTURE_2D, specularMap);
     
     
     GLKVector3 cameraUp = GLKVector3Make(0.0f, 1.0f, 0.0f);
@@ -287,7 +288,7 @@
     [shader setUniformMatrix4fv:"projection" value:projection];
     
     GLKVector3 cubePositions[] = {
-        GLKVector3Make( 0.0f,  0.0f,  0.0f),
+        GLKVector3Make( 0.0f,  -5.0,  -20.0f),
         GLKVector3Make( 2.0f,  5.0f, -15.0f),
         GLKVector3Make(-1.5f, -2.2f, -2.5f),
         GLKVector3Make(-3.8f, -2.0f, -12.3f),
@@ -299,36 +300,37 @@
         GLKVector3Make(-1.3f,  1.0f, -1.5f)
     };
     
-    for (NSInteger i = 0; i < 10; i++) {
-        GLKMatrix4 model = GLKMatrix4TranslateWithVector3(GLKUnitMatrix4, cubePositions[i]);
-        GLfloat angle = 20.0f * i;
-        model = GLKMatrix4Rotate(model, GLKMathDegreesToRadians(angle), 1.0, 0.3, 0.5);
+//    for (NSInteger i = 0; i < 10; i++) {
+        GLKMatrix4 model = GLKMatrix4TranslateWithVector3(GLKUnitMatrix4, cubePositions[0]);
+//        GLfloat angle = 20.0f * i;
+//        model = GLKMatrix4Rotate(model, GLKMathDegreesToRadians(angle), 1.0, 0.3, 0.5);
         [shader setUniformMatrix4fv:"model" value:model];
-        glDrawArrays(GL_TRIANGLES, 0, 36);
-    }
-    
-    [lightShader use];
-    glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), vVertices );
-    glEnableVertexAttribArray ( 0 );
-    
-    
-    //    GLKMatrix4 cubeView = GLKUnitMatrix4;
-    [lightShader setUniformMatrix4fv:"view" value:view2];
-    
-    GLKMatrix4 cubeProjection = GLKUnitMatrix4;
-    cubeProjection = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(45.0f), 1, 0.1f, 100.0f);
-    [lightShader setUniformMatrix4fv:"projection" value:cubeProjection];
-    
-    
-    GLKMatrix4 cubeModel = GLKUnitMatrix4;
-    
-    cubeModel = GLKMatrix4Translate(cubeModel, lightPos.x, lightPos.y, lightPos.z);
-    cubeModel = GLKMatrix4Scale(cubeModel, 0.5, 0.5, 0.5);
-    [lightShader setUniformMatrix4fv:"mode" value:cubeModel];
-    
-    
-    
-    glDrawArrays(GL_TRIANGLES, 0, 36);
+//        glDrawArrays(GL_TRIANGLES, 0, 36);
+        ourModel->Draw([shader getProgramObject]);
+//    }
+//
+//    [lightShader use];
+//    glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), vVertices );
+//    glEnableVertexAttribArray ( 0 );
+//
+//
+//    //    GLKMatrix4 cubeView = GLKUnitMatrix4;
+//    [lightShader setUniformMatrix4fv:"view" value:view2];
+//
+//    GLKMatrix4 cubeProjection = GLKUnitMatrix4;
+//    cubeProjection = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(45.0f), 1, 0.1f, 100.0f);
+//    [lightShader setUniformMatrix4fv:"projection" value:cubeProjection];
+//
+//
+//    GLKMatrix4 cubeModel = GLKUnitMatrix4;
+//
+//    cubeModel = GLKMatrix4Translate(cubeModel, lightPos.x, lightPos.y, lightPos.z);
+//    cubeModel = GLKMatrix4Scale(cubeModel, 0.5, 0.5, 0.5);
+//    [lightShader setUniformMatrix4fv:"mode" value:cubeModel];
+//
+//
+//
+//    glDrawArrays(GL_TRIANGLES, 0, 36);
     
     
     //    [_glkView setNeedsDisplay];

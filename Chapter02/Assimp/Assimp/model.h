@@ -41,7 +41,10 @@ public:
     vector<Mesh> meshes;
     string directory;
     bool gammaCorrection;
-
+    Model(const char *path){
+        cout << "...." << endl;
+        loadModel(path);
+    }
     /*  Functions   */
     // constructor, expects a filepath to a 3D model.
     Model(string const &path, bool gamma = false) : gammaCorrection(gamma)
@@ -228,8 +231,7 @@ unsigned int TextureFromFile(const char *path, const string &directory, bool gam
             format = GL_RED;
         else if (nrComponents == 3)
             format = GL_RGB;
-        else if (nrComponents == 4)
-            format = GL_RGBA;
+        else format = GL_RGBA;
         
         glBindTexture(GL_TEXTURE_2D, textureID);
         glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);

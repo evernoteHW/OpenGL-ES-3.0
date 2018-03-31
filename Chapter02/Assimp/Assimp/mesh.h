@@ -48,7 +48,9 @@ public:
     vector<unsigned int> indices;
     vector<Texture> textures;
     unsigned int VAO;
-    
+    Mesh(){
+        std::cout << ",,," << std::endl;
+    }
     /*  Functions  */
     // constructor
     Mesh(vector<Vertex> vertices, vector<unsigned int> indices, vector<Texture> textures)

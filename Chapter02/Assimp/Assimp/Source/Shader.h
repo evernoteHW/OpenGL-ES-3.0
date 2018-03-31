@@ -10,6 +10,7 @@
 #import <GLKit/GLKit.h>
 
 @interface Shader : NSObject
+- (GLuint)getProgramObject;
 - (void)use;
 - (void)setInt:(const GLchar *)name value:(GLint)value;
 - (void)setUniformFloat:(const GLchar *)name value:(GLfloat)value;
